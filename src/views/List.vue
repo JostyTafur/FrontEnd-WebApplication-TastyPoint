@@ -15,7 +15,7 @@
 
     <pv-scrollpanel style="width:99%; height: 80vh">
       <div class="cards">
-        <pv-card  v-for="dish of dishes" :key="dish.id">
+        <pv-card  v-for="dish of filteredDishes" :key="dish.id">
           <template #header>
             <a href="/list">
               <img class="img-card" :src="dish.image" alt=""/>
