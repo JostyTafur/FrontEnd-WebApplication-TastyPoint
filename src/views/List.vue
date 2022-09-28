@@ -74,7 +74,7 @@ export default{
 
 <style scoped>
     .title{
-       margin: 60px 40px 0 60px;
+       margin: 60px 40px 0px 60px;
        grid-column: 1;
        grid-row: 1;
        justify-self: start;
