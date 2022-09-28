@@ -3,38 +3,43 @@
         <div class="title">
             <h2>Close to your area: </h2> 
         </div>
+      <pv-scrollpanel style="width:99%; height: 80vh">
         <div class="cards">
-            <pv-card  v-for="dish of dishes" :key="dish.favorite" v-show="dish.favorite">
-                <template #header>
-                    <div class="header-card">
-                        <img class="img-card" :src="dish.image" alt=""/>
-                        <div class="price">Price: {{dish.price}}</div>
-                    </div>
-                </template>
-                <template #title>
-                    <div class="title-card">
-                        <div class="rest-name">{{dish.restaurantname}}</div>
-                        <div class="icon-card">
-                            <a v-on:click="updateFavorite(dish)">
-                               <i :class="[dish.favorite? 'pi pi-heart-fill' : 'pi pi-heart']" style="font-size: 2rem"></i>
-                            </a>
-                    </div>
-                    </div>
-                    
-                </template>
-                <template #content>
-                    <div class="content-card">
-                        <div>
-                            Product type: {{dish.producttype}}
-                        </div>
-                        <div>
-                            Product name: {{dish.productname}}
-                        </div>
-                    </div>
-                </template>
-            </pv-card>
-            
+          <pv-card  v-for="dish of dishes" :key="dish.favorite" v-show="dish.favorite">
+            <template #header>
+              <div class="header-card">
+                <a href="/list">
+                  <img class="img-card" :src="dish.image" alt=""/>
+                </a>
+                <div class="price">Price: {{dish.price}}</div>
+
+              </div>
+            </template>
+            <template #title>
+              <div class="title-card">
+                <div class="rest-name">{{dish.restaurantname}}</div>
+                <div class="icon-card">
+                  <a v-on:click="updateFavorite(dish)">
+                    <i :class="[dish.favorite? 'pi pi-heart-fill' : 'pi pi-heart']" style="font-size: 2rem"></i>
+                  </a>
+                </div>
+              </div>
+
+            </template>
+            <template #content>
+              <div class="content-card">
+                <div>
+                  Product type: {{dish.producttype}}
+                </div>
+                <div>
+                  Product name: {{dish.productname}}
+                </div>
+              </div>
+            </template>
+          </pv-card>
+
         </div>
+      </pv-scrollpanel>
         
     </div>
 </template>
