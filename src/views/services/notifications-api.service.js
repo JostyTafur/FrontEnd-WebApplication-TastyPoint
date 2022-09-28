@@ -17,7 +17,7 @@ export class NotificationsApiService {
         return http.put(`/notifications/${id}`, data);
     }
 
-    patch(id, data){
+    patch(id, data) {
         return http.patch(`/notifications/${id}`, data);
     }
 
@@ -29,6 +29,7 @@ export class NotificationsApiService {
         return http.get(`/notifications?title=${title}`);
     }
 
-    findBy(title,condicion) {
+    findBy(title, condicion) {
         return http.get(`/notifications?${title}=${condicion}`);
     }
+}

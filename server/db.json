@@ -15,7 +15,7 @@
       "price": 10,
       "producttype": "Dinner Plate",
       "productname": "Rice with chicken",
-      "favorite": true,
+      "favorite": false,
       "image": "https://comidasperuanas.net/wp-content/uploads/2015/07/Arroz-con-pollo-peruano.jpg"
     },
     {
@@ -24,7 +24,7 @@
       "price": 7,
       "producttype": "input",
       "productname": "Grilled Chicken",
-      "favorite": false,
+      "favorite": true,
       "image": "https://elcomercio.pe/resizer/ii0EiWdpMP9_DsJzJ3whAirXg3U=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/WKLKU6YQTJEZJLSWM3CUZZ37AA.jpg"
     },
     {
@@ -44,6 +44,20 @@
       "subtitle": "At PakosRest we offer you a 60% discount for the purchase of a plate of food and an input.",
       "content": "The offer is only valid between September 10 to September 30, 2022. The offer is only granted to people who purchase a plate of food and at least one input in the same purchase.If you do not comply with any of the above points, the discount will not be applied.",
       "image": "./src/assets/images/notifications-1.png"
+    },
+    {
+      "id": 1,
+      "title": "Norky's has just published several supplies",
+      "subtitle": "Norky's Restaurant published 4 new supplies.",
+      "content": "The supplies are: - 1/8 grilled chicken - salad with vinaigrette - Hoop rice - 1 pork chop",
+      "image": ""
+    },
+    {
+      "id": 2,
+      "title": "Juanito's just posted a plate of food",
+      "subtitle": "Juanito's published the dish: Steak a lo poor. Get it before it runs out.",
+      "content": "",
+      "image": ""
     }
   ]
 }
