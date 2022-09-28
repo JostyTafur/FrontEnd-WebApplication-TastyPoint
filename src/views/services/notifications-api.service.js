@@ -32,4 +32,3 @@ export class NotificationsApiService {
     findBy(title,condicion) {
         return http.get(`/notifications?${title}=${condicion}`);
     }
-}
