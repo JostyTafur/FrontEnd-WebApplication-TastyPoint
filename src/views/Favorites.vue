@@ -3,16 +3,12 @@
         <div class="title">
             <h2>Close to your area: </h2> 
         </div>
-        <pv-scrollpanel style="width:99%; height: 80vh">
-            <div class="cards">
+        <div class="cards">
             <pv-card  v-for="dish of dishes" :key="dish.favorite" v-show="dish.favorite">
                 <template #header>
                     <div class="header-card">
-                    <a href="/list">
                         <img class="img-card" :src="dish.image" alt=""/>
-                    </a>
                         <div class="price">Price: {{dish.price}}</div>
-                    
                     </div>
                 </template>
                 <template #title>
@@ -39,7 +35,7 @@
             </pv-card>
             
         </div>
-        </pv-scrollpanel>
+        
     </div>
 </template>
 
@@ -139,7 +135,5 @@ export default{
         font-size: 15px;
         margin: -30px 10px 0px 10px;
     }
-    .a:hover{
-        cursor: hand;
-    }
+
 </style>
