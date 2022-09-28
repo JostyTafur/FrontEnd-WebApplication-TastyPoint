@@ -6,7 +6,7 @@
       "price": "2",
       "producttype": "input",
       "productname": "Parboiled Potato",
-      "favorite": true,
+      "favorite": false,
       "image": "https://www.diariamenteali.com/medias/receta-de-papas-sancochadas-con-aroma-de-pachamanca-1900Wx500H?context=bWFzdGVyfGltYWdlc3wyMjEwMTd8aW1hZ2UvanBlZ3xoOTYvaGZhLzkwNzQxMzAxNTc1OTgvcmVjZXRhLWRlLXBhcGFzLXNhbmNvY2hhZGFzLWNvbi1hcm9tYS1kZS1wYWNoYW1hbmNhXzE5MDBXeDUwMEh8NTM3MTJiMzI2YmQ2OTAyY2UzOGNkNDFlNTIxZTg4ZmRmZWVhMDE5OWM2YmI0Y2I1NmE4ZDNmYmRkZTg2Yzc1Nw"
     },
     {
@@ -33,7 +33,7 @@
       "price": 7,
       "producttype": "Dinner Plate",
       "productname": "Rice with seafood",
-      "favorite": true,
+      "favorite": false,
       "image": "https://recetascocinaperuana.com/wp-content/uploads/2020/08/arroz-con-mariscos.jpg"
     }
   ],
