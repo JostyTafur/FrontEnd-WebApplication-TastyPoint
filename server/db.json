@@ -59,5 +59,34 @@
       "content": "",
       "image": ""
     }
+  ],
+  "orders":[
+    {
+      "id": 0,
+      "product": "Rice with Chicken",
+      "status": "Preparing",
+      "restaurant": "Peruvianitos",
+      "productType": "Dinner",
+      "deliveryMethod": "Delivery",
+      "paymentMethod": "credit card"
+    },
+    {
+      "id": 1,
+      "product": "Special",
+      "status": "Sending",
+      "restaurant": "AmaZ",
+      "productType": "Made from inputs",
+      "deliveryMethod": "to pick up",
+      "paymentMethod": "cash"
+    },
+    {
+      "id": 2,
+      "product": "Rice with Chicken",
+      "status": "Delivered",
+      "restaurant": "Cevichando",
+      "productType": "Dinner",
+      "deliveryMethod": "Delivery",
+      "paymentMethod": "wire transfer"
+    }
   ]
 }
