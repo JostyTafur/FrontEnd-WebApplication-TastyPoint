@@ -45,5 +45,34 @@
       "content": "The offer is only valid between September 10 to September 30, 2022. The offer is only granted to people who purchase a plate of food and at least one input in the same purchase.If you do not comply with any of the above points, the discount will not be applied.",
       "image": "./src/assets/images/notifications-1.png"
     }
+  ],
+  "orders":[
+    {
+      "id": 0,
+      "product": "Rice with Chicken",
+      "status": "Preparing",
+      "restaurant": "Peruvianitos",
+      "productType": "Dinner",
+      "deliveryMethod": "Delivery",
+      "paymentMethod": "credit card"
+    },
+    {
+      "id": 1,
+      "product": "Special",
+      "status": "Sending",
+      "restaurant": "AmaZ",
+      "productType": "Made from inputs",
+      "deliveryMethod": "to pick up",
+      "paymentMethod": "cash"
+    },
+    {
+      "id": 2,
+      "product": "Rice with Chicken",
+      "status": "Delivered",
+      "restaurant": "Cevichando",
+      "productType": "Dinner",
+      "deliveryMethod": "Delivery",
+      "paymentMethod": "wire transfer"
+    }
   ]
 }
