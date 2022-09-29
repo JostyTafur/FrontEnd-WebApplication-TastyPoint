@@ -4,7 +4,7 @@
       <h2>My order:</h2>
     </div>
 
-    <pv-scrollpanel style="width:99%; height: 82vh" class="custom">
+    <pv-scrollpanel style="width:99.9%; height: 82vh" class="custom">
       <div class="order-cards">
         <pv-card v-for="order of orders" class="element-card-order">
           <template #title>
