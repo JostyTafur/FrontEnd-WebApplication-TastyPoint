@@ -50,13 +50,39 @@
                     Settings
                 </div>
             </router-link>
-                
-            <router-link to="/login" active-class=active exact tag="button" class="side-btn">
+
+          <button @click="seeDialog=true" class="btn-dialog">
+            <router-link to="" active-class=active exact tag="button" class="side-btn">
                 <div class="link-container">
-                    <i class=" pi pi-sign-out"></i>                
+                    <i class=" pi pi-sign-out"></i>
                     Sign out
                 </div>
             </router-link>
+          </button>
+
+          <pv-dialog v-model:visible="seeDialog"
+                     :style="{ width: '450px'}"
+                     header="Sign Out"
+                     :modal="true">
+            <div class="confirmation-content">
+              <i class="pi pi-exclamation-triangle mr-3"
+                 style="font-size: 2rem"/>
+              <span>
+          Are you sure you want to sign out?
+        </span>
+            </div>
+            <template #footer>
+              <pv-button :label="'No'.toUpperCase()"
+                         icon="pi pi-times"
+                         class="p-button-text"
+                         @click="seeDialog = false"/>
+              <pv-button :label="'Yes'.toUpperCase()"
+                         icon="pi pi-check"
+                         class="p-button-text"
+                         @click="signOut()"/>
+            </template>
+          </pv-dialog>
+
         </div>
     </div>
 </template>
@@ -66,7 +92,12 @@ export default {
   name: "Sidebar",
   data(){
     return{
-
+      seeDialog: false,
+    }
+  },
+  methods:{
+    signOut(){
+      this.$router.push('/login');
     }
   }
 }
@@ -120,6 +151,20 @@ export default {
         background-color: white;
         border-radius: 10px;
     }
+    .btn-dialog{
+      border:none;
+      background-color: transparent;
+      font-family: 'Montserrat';
+      font-size: 15px;
+      text-align: start;
+    }
+    .btn-dialog:hover{
+      background-color: white;
+      border-radius: 10px;
+    }
 
+    .p-button{
+      color: black;
+    }
     
 </style>
