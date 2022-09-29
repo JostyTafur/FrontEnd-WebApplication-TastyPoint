@@ -58,6 +58,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 65vh;
+    margin-top: 10vh;
   }
   .settings {
     text-align: left;
@@ -68,7 +70,7 @@
   .profile-picture{
     width: 160px;
     height: 156px;
-    margin: 1%;
+    margin: 2%;
   }
   form{
     background-color: #fdfbef;
@@ -87,7 +89,6 @@
   .btn{
     width: 227px;
     height: 59px;
-    top: 1%;
     background: #3F1602;
     border-radius: 10px;
     outline:none;
@@ -96,6 +97,7 @@
     font-size: 20px;
     color: #FDFBEF;
     cursor: pointer;
+    margin-top: 8px;
   }
   .popup{
     width: 652px;

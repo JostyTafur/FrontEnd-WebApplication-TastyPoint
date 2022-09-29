@@ -44,11 +44,7 @@ export default{
   data(){
     return{
       text: '',
-      orders:[
-        {product: "Rice with Chicken", status: "Preparing", restaurant: "Peruvianitos", productType: "Dinner", deliveryMethod: "Delivery", paymentMethod: "credit card"},
-        {product: "Special",status: "Sending", restaurant: "AmaZ", productType: "Made from inputs", deliveryMethod: "to pick up", paymentMethod: "cash"},
-        {product: "Rice with Chicken",status: "Delivered", restaurant: "Cevichando", productType: "Dinner", deliveryMethod: "Delivery", paymentMethod: "wire transfer"}
-      ],
+      orders:[],
       orderService: null
     };
   },
@@ -92,6 +88,9 @@ export default{
   padding-bottom: 2%;
   padding-left: 2%;
   padding-right: 4%;
+}
+.p-card{
+  border-radius: 20px;
 }
 .element-card-order{
   margin: 2%;
