@@ -37,22 +37,20 @@
         <input type="date" name="" id="date"><span class="barra"></span>
       </div>
 
-      <button type="submit" class="btn" onclick="openPopup()">Save changes</button>
-
-      <div class="popup" id="popup">
-        <h2>Changes saved</h2>
-        <button type="button" id="ppBtn" onclick=closePopup()>Ok</button>
-      </div>
+      <button type="submit" class="btn">Save changes</button>
 
     </form>
-
   </div>
+
+  <div class="popup" id="popup">
+    <h2>Changes saved</h2>
+    <button class="close-btn">Ok</button>
+  </div>
+
 </template>
 
 <script>
-export default{
-
-}
+/*futuro perfil de usuario*/
 </script>
 
 <style scoped>
@@ -103,22 +101,23 @@ export default{
     width: 652px;
     background: #FDFBEF;
     border-radius: 12px;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.1);
+    transition: 200ms ease-in-out;
     text-align: center;
     paddind: 0 30px 30px;
     color: #3F1602;
     font-weight: bold;
-    visibility: hidden;
-    transition: transform 0.4s, top 0.4s;
+    transform: translate(0%, 0%) scale(0);
   }
+  .popup.active{
+    transform: translate(35%, -200%) scale(1);
+  }
+
   .open-popup{
     visibility: visible;
     top:50%;
     transform: translate(-50%, -50%) scale(1);
   }
-  .mi-popup button{
+  .popup button{
     width: 50%;
     height: 59px;
     background: #3F1602;
@@ -131,7 +130,8 @@ export default{
     cursor: pointer;
     margin: 5%;
   }
-  .mi-popup h2{
+
+  .popup h2{
     margin: 5%;
   }
 </style>
