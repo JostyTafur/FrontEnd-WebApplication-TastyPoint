@@ -12,7 +12,9 @@ import 'primeicons/primeicons.css'
 import Menu from 'primevue/menu'
 import Sidebar from 'primevue/sidebar'
 import Card from 'primevue/card'
-
+import ScrollPanel from 'primevue/scrollpanel'
+import Dialog from 'primevue/dialog'
+import Button from "primevue/button";
 
 import './assets/main.css'
 
@@ -24,6 +26,9 @@ app.use(PrimeVue)
 app.component('pv-sidebar', Sidebar)
 app.component('pv-menu', Menu)
 app.component('pv-card', Card)
+app.component('pv-scrollpanel', ScrollPanel)
+app.component('pv-dialog', Dialog)
+app.component('pv-button', Button)
 
 app.mount('#app')
 
