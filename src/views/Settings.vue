@@ -36,6 +36,7 @@
         <label for="">Date of Birth</label>
         <input type="date" name="" id="date"><span class="barra"></span>
       </div>
+
       <button type="submit" class="btn">Save changes</button>
 
     </form>
@@ -45,7 +46,6 @@
     <h2>Changes saved</h2>
     <button class="close-btn">Ok</button>
   </div>
-
 
 </template>
 
@@ -111,6 +111,12 @@
   .popup.active{
     transform: translate(35%, -200%) scale(1);
   }
+
+  .open-popup{
+    visibility: visible;
+    top:50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
   .popup button{
     width: 50%;
     height: 59px;
@@ -124,6 +130,7 @@
     cursor: pointer;
     margin: 5%;
   }
+
   .popup h2{
     margin: 5%;
   }

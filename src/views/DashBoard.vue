@@ -2,7 +2,7 @@
     <div class="dashboard">
         <Sidebar></Sidebar>
         <div class="content">
-                <router-view></router-view>
+            <router-view></router-view>
         </div>
     </div>
 </template>
@@ -28,6 +28,5 @@ export default {
         background-color: rgba(233, 65, 82, 1);
         border-radius:10px;
         margin: 5px 18vw;
-        /*overflow-y: scroll;*/
     }
 </style>
