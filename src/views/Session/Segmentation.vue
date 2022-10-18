@@ -4,7 +4,7 @@
       <h1>Tasty Point</h1>
       <img src="../../assets/images/logoLog-in.png" alt="Company Logo">
     </div>
-    <div class="forms">
+    <form @submit.prevent="checkForm(!v$.$invalid)" class="forms">
       <pv-card class="cardForm">
         <template #header>
           <h2 class="titleCard">In order to provide you with a better service, please tell us which segment you identify with.</h2>
@@ -26,40 +26,70 @@
 
             </div>
             <div class="inputs">
-              <h4>Specify your type of business</h4>
-              <pv-inputtext type="text" placeholder="Restaurant, dining room, etc." class="inp"></pv-inputtext>
+              <h5>Specify your type of business</h5>
+              <pv-dropdown id="typeBusiness"
+                           :options="options" optionLabel="name"
+                            v-model="v$.typeBusiness.$model"
+                            type="text" placeholder="Enter username"
+                            :class="{'p-invalid': v$.typeBusiness.$invalid && submitted}"
+                            class="inp" :disabled="!(segmento === 'Business')"
+                            :editable="true"></pv-dropdown>
+
+              <small v-if="(v$.typeBusiness.$invalid && submitted && (segmento === 'Business')) || v$.typeBusiness.$pending.$response"
+                     class="p-error">{{v$.typeBusiness.required.$message.replace('Value', 'This camp')}}</small>
             </div>
-
-
           </div>
 
         </template>
         <template #footer>
           <div>
-            <pv-button class="btnSegmento" type="submit" label="Continue" @click="Segmentation"></pv-button>
+            <pv-button class="btnSegmento" type="submit" label="Continue"></pv-button>
           </div>
         </template>
 
       </pv-card>
-    </div>
+    </form>
   </div>
 </template>
 
 <script>
-
+import {email,required} from '@vuelidate/validators'
+import {useVuelidate} from '@vuelidate/core'
 export default{
+  setup: () => ({ v$: useVuelidate() }),
   data(){
     return{
-      segmento: ''
+      segmento: '',
+      typeBusiness: '',
+      submitted: false,
+      options: [
+        {name: 'Restaurant'},
+        {name: 'Cafeteria'},
+        {name: 'Soda Fountain'},
+        {name: 'Drives inn'},
+        {name: 'Bar'}
+      ]
+    }
+  },
+  validations(){
+    return {
+      typeBusiness: {
+        required
+      }
     }
   },
   methods:{
-    Segmentation(){
+    checkForm(isFormValid){
+      this.submitted = true;
+
       if(this.segmento === 'Consumer'){
-          this.$router.push('/consumer/list');
+        this.$router.push('/consumer/list');
       }
       if(this.segmento === 'Business'){
-          this.$router.push('/business')
+        if (!isFormValid) {
+          return;
+        }
+        this.$router.push('/business/catalogue')
       }
     }
   }
@@ -93,7 +123,13 @@ export default{
 }
 .inputs{
   text-align: start;
-  margin: 0px 0px 0px 30px;
+  margin: 0px 0px 0px 35px;
+  gap: 10px;
+}
+.inp{
+  border-radius: 20px;
+  width: 100%;
+  margin-top: 10px;
 }
 .btnSegmento{
   width: 26vw;

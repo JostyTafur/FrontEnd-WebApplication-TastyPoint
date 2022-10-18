@@ -19,6 +19,10 @@ const router = createRouter({
       component: () => import('../views/Session/Segmentation.vue')
     },
     {
+      path: '/forgotpassword',
+      component: () => import('../views/Session/ForgotPassword.vue')
+    },
+    {
       path: '/consumer',
       name: 'dashboard-consumer',
       component: DashBoardConsumer,

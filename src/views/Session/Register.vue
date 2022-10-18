@@ -42,14 +42,11 @@
                    class="p-error">{{v$.Email.required.$message.replace('Value', 'Email')}}</small>
           </div>
           <div class="inputs">
-            <div style="display: flex; justify-content: space-between">
-              <h4>Password</h4>
-            </div>
-            <pv-inputtext type="password"
-                          id="password"
-                          v-model="v$.password.$model"
-                          :class="{'p-invalid':v$.password.$invalid && submitted}"
-                          placeholder="Enter password" class="inp"></pv-inputtext>
+            <h4>Password</h4>
+            <pv-password id="password"
+                         v-model="v$.password.$model"
+                         :class="{'p-invalid':v$.password.$invalid && submitted}"
+                         placeholder="Enter password" class="inp" toggleMask></pv-password>
             <small v-if="(v$.password.$invalid && submitted) || v$.password.$pending.$response"
                    class="p-error">{{v$.password.required.$message.replace('Value', 'Password')}}</small>
           </div>
@@ -182,6 +179,10 @@ export default{
 }
 .p-inputtext{
   width: 28vw;
+}
+::v-deep(.p-password input){
+  width: 28vw;
+  border-radius: 12px;
 }
 .inp{
   border-radius: 12px;

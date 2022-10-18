@@ -4,7 +4,7 @@
         <h1>Tasty Point</h1>
         <img src="../../assets/images/logoLog-in.png" alt="Company Logo">
       </div>
-      <div class="forms">
+      <form @submit.prevent="checkForm(!v$.$invalid)" class="forms">
         <pv-card class="cardForm">
           <template #content>
             <div class="btnsChanged">
@@ -15,19 +15,35 @@
             </div>
             <div class="inputs">
               <h4>Email</h4>
-              <pv-inputtext type="text" placeholder="Enter email" class="inp"></pv-inputtext>
+              <pv-inputtext id="Email"
+                            v-model="v$.Email.$model"
+                            :class="{'p-invalid':v$.Email.$invalid && submitted}"
+                            aria-describedby="email-error"
+                            placeholder="Enter email"
+                            class="inp"></pv-inputtext>
+
+              <span v-if="v$.Email.$error && submitted">
+                            <span id="email-error" v-for="(Error, index) of v$.Email.$errors" :key="index">
+                              <small class="p-error">{{Error.$message}}</small>
+                            </span>
+                        </span>
+              <small v-else-if="(v$.Email.$invalid && submitted) || v$.Email.$pending.$response"
+                     class="p-error">{{v$.Email.required.$message.replace('Value', 'Email')}}</small>
             </div>
             <div class="inputs">
               <div style="display: flex; justify-content: space-between">
-                <h4>Password</h4><a class="fyp" href="">Forgot your password?</a>
+                <h4>Password</h4><router-link to="/forgotpassword" class="fyp" >Forgot your password?</router-link>
               </div>
-              <pv-inputtext type="password" placeholder="Enter password" class="inp"></pv-inputtext>
+              <pv-password id="password"
+                            v-model="v$.password.$model"
+                            :class="{'p-invalid':v$.password.$invalid && submitted}"
+                           placeholder="Enter password" class="inp" :feedback="false" toggleMask></pv-password>
+              <small v-if="(v$.password.$invalid && submitted) || v$.password.$pending.$response"
+                     class="p-error">{{v$.password.required.$message.replace('Value', 'Password')}}</small>
             </div>
 
             <div>
-              <router-link to="/segmentation">
                 <pv-inputtext class="btnLog-in" type="submit" value="Log In"></pv-inputtext>
-              </router-link>
             </div>
           </template>
           <template #footer>
@@ -44,20 +60,42 @@
           </template>
 
         </pv-card>
-      </div>
+      </form>
     </div>
 </template>
 
 <script>
-
+import {email,required} from '@vuelidate/validators'
+import {useVuelidate} from '@vuelidate/core'
 export default{
+  setup: () => ({ v$: useVuelidate() }),
   data(){
     return{
-      selectedLogin: true,
-      options: [
-        {label: 'Log in'},
-        {label: 'Register'}
-      ]
+      Email: '',
+      password: '',
+      submitted: false
+    }
+  },
+  validations(){
+    return{
+      Email: {
+        required,
+        email
+      },
+      password: {
+        required
+      }
+    }
+  },
+  methods:{
+    checkForm(isFormValid){
+      this.submitted = true;
+
+      if (!isFormValid) {
+
+        return;
+      }
+      this.$router.push('/segmentation');
     }
   }
 }
@@ -127,6 +165,10 @@ export default{
     }
     .p-inputtext{
       width: 26vw;
+    }
+    ::v-deep(.p-password input){
+      width: 26vw;
+      border-radius: 12px;
     }
     .inp{
       border-radius: 12px;
