@@ -15,17 +15,17 @@
 
     <pv-scrollpanel style="width:99%; height: 80vh">
       <div class="cards">
-        <pv-card  v-for="dish of dishes" :key="dish.id">
+        <pv-card  v-for="dish of filteredDishes" :key="dish.id">
           <template #header>
-            <a href="/list">
+            <router-link :to="{ name: 'detail', params: {id:dish.id}}">
               <img class="img-card" :src="dish.image" alt=""/>
-            </a>
-            <div class="price">Price: {{dish.price}}</div>
+            </router-link>
+            <div class="price font-Mont">Price: S/{{dish.price}}</div>
 
           </template>
           <template #title>
             <div class="title-card">
-              <div class="rest-name">{{dish.restaurantname}}</div>
+              <div class="rest-name font-Mont">{{dish.restaurantname}}</div>
               <div class="icon-card">
                 <a v-on:click="updateFavorite(dish)">
                   <i :class="[dish.favorite? 'pi pi-heart-fill' : 'pi pi-heart']" style="font-size: 2rem"></i>
@@ -35,7 +35,7 @@
 
           </template>
           <template #content>
-            <div class="content-card">
+            <div class="content-card font-Mont">
               <div>
                 Product type: {{dish.producttype}}
               </div>
@@ -106,7 +106,9 @@ export default {
   grid-column: 1;
   grid-row: 1;
   justify-self: start;
-
+}
+.font-Mont{
+  font-family: 'Montserrat', sans-serif;
 }
 input{
   display: flex;

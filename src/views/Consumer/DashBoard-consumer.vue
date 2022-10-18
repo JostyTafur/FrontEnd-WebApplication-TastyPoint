@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import Sidebar from '../components/sidebar.component.vue'
+import Sidebar from '../../components/sidebar-consumer.component.vue'
 export default {
-    name: "DashBoard",
+    name: "DashBoard-consumer",
     components: {Sidebar}
 }
 </script>

@@ -1,39 +1,81 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import DashBoard from '../views/DashBoard.vue'
-
+import DashBoardConsumer from '../views/Consumer/DashBoard-consumer.vue'
+import DashBoardBusiness from "../views/Business/DashBoard-business.vue";
+import Login from "../views/Session/Login.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'dashboard',
-      component: DashBoard,
+      path: "/",
+      name: 'login',
+      component: Login,
+    },
+    {
+      path: '/register',
+      component: () => import('../views/Session/Register.vue')
+    },
+    {
+      path: '/segmentation',
+      component: () => import('../views/Session/Segmentation.vue')
+    },
+    {
+      path: '/consumer',
+      name: 'dashboard-consumer',
+      component: DashBoardConsumer,
       children: [
         {
-          path: '/list',
-          component: () => import('../views/List.vue')
+          path: '/consumer/list',
+          component: () => import('../views/Consumer/List.vue')
         },
         {
-          path: '/favorites',
-          component: () => import("../views/Favorites.vue")
+          path: '/consumer/favorites',
+          component: () => import("../views/Consumer/Favorites.vue")
         },
         {
-          path: '/notifications',
-          component: () => import("../views/Notifications.vue")
+          path: '/consumer/notifications',
+          component: () => import("../views/Consumer/Notifications.vue")
         },
         {
-          path: '/orders',
-          component: () => import("../views/Orders.vue")
+          path: '/consumer/orders',
+          component: () => import("../views/Consumer/Orders.vue")
         },
         {
-          path: '/settings',
-          component: () => import('../views/Settings.vue')
+          path: '/consumer/settings',
+          component: () => import('../views/Consumer/Settings.vue')
+        },
+        {
+          path: '/consumer/detail/:id',
+          name: 'detail',
+          component: () => import('../views/Consumer/DetailsDish.vue')
         }
       ]
     },
     {
-      path: '/login',
-      component: () => import('../views/Login.vue')
+      path: '/business',
+      name: 'dashboard-business',
+      component: DashBoardBusiness,
+      children: [
+        {
+          path: '/business/catalogue',
+          component: ()=> import("../views/Business/Catalogue.vue")
+        },
+        {
+          path: '/business/profile',
+          component: () => import("../views/Business/Profile.vue")
+        },
+        {
+          path: '/business/promotions',
+          component: () => import("../views/Business/Promotions.vue")
+        },
+        {
+          path: '/business/orders',
+          component: ()=> import("../views/Business/Orders.vue")
+        },
+        {
+          path: '/business/settings',
+          component: ()=> import("../views/Business/Settings.vue")
+        }
+      ]
     }
   ]
 })

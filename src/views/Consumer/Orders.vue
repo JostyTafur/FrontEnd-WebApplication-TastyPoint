@@ -5,27 +5,27 @@
     </div>
 
     <pv-scrollpanel style="width:99%; height: 82vh" class="custom">
-      <div class="order-cards">
+      <div class="order-cards font-Mont">
         <pv-card v-for="order of orders" class="element-card-order">
           <template #title>
-            <div class="p-card-title">
+            <div class="p-card-title font-Mont">
               <h3>Product: {{order.product}}</h3>
               <h4>Status: {{order.status}}</h4>
             </div>
           </template>
           <template #content>
-            <div class="p-card-content">
+            <div class="p-card-content font-Mont">
               <li>Restaurant: {{order.restaurant}}</li>
               <li>Product type: {{order.productType}}</li>
               <li>Delivery Method: {{order.deliveryMethod}}</li>
               <li>Payment Method: {{order.paymentMethod}}</li>
             </div>
-            <p class="label-details" v-on:click="changeDetails">Less details <i class="pi pi-arrow-down" style="font-size: 1.5rem"></i> </p>
+            <p class="label-details font-Mont" v-on:click="changeDetails">Less details <i class="pi pi-arrow-down" style="font-size: 1.5rem"></i> </p>
           </template>
           <template #footer>
             <div class="p-card-footer">
-              <button class="btn-cancel-order" @click="cancelOrder(order)">To cancel an order</button>
-              <button class="btn-edit-order" @click="editOrder(order)">Edit order</button>
+              <button class="btn-cancel-order font-Mont" @click="cancelOrder(order)">To cancel an order</button>
+              <button class="btn-edit-order font-Mont" @click="editOrder(order)">Edit order</button>
             </div>
           </template>
         </pv-card>
@@ -37,7 +37,7 @@
 
 <script>
 
-import {OrdersApiService} from "./services/orders-api.service";
+import {OrdersApiService} from "../services/orders-api.service";
 
 export default{
   name:'Orders',
@@ -80,6 +80,10 @@ export default{
   grid-template-columns: 1fr;
   justify-content: center;
   align-items: center;
+
+}
+.font-Mont{
+  font-family: 'Montserrat', sans-serif;
 }
 .title{
   margin: 1%;
