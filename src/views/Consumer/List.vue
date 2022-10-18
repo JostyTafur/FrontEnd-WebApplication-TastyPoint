@@ -3,7 +3,7 @@
     <input class="LoginInput"
            type="text"
            v-model="search"
-           placeholder=" Search food dishes, supplies or restaurants"
+           placeholder=" Search foods dishes, supplies  or restaurants"
            v-on:click="putSearch(true)" v-on:mouseenter="putSearch(true)" v-on:mouseleave="unputSearch(true)">
     <i class="pi pi-search"  style="font-size: 1rem; color:#000000;position:absolute; margin: -1.5rem 10rem 0rem 31.5rem;"></i>
   </div>
@@ -178,5 +178,4 @@ input{
   font-size: 15px;
   margin: -30px 10px 0px 10px;
 }
-
 </style>

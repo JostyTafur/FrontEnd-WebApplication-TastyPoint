@@ -6,7 +6,7 @@
 
     <pv-scrollpanel style="width:99%; height: 82vh" class="custom">
       <div class="order-cards font-Mont">
-        <pv-card v-for="order of orders" class="element-card-order">
+        <pv-card v-for="order of orders" v-bind:key="order.id" class="element-card-order">
           <template #title>
             <div class="p-card-title font-Mont">
               <h3>Product: {{order.product}}</h3>
@@ -44,11 +44,7 @@ export default{
   data(){
     return{
       text: '',
-      orders:[
-        {product: "Rice with Chicken", status: "Preparing", restaurant: "Peruvianitos", productType: "Dinner", deliveryMethod: "Delivery", paymentMethod: "credit card"},
-        {product: "Special",status: "Sending", restaurant: "AmaZ", productType: "Made from inputs", deliveryMethod: "to pick up", paymentMethod: "cash"},
-        {product: "Rice with Chicken",status: "Delivered", restaurant: "Cevichando", productType: "Dinner", deliveryMethod: "Delivery", paymentMethod: "wire transfer"}
-      ],
+      orders:[],
       orderService: null
     };
   },
@@ -96,6 +92,9 @@ export default{
   padding-bottom: 2%;
   padding-left: 2%;
   padding-right: 4%;
+}
+.p-card{
+  border-radius: 20px;
 }
 .element-card-order{
   margin: 2%;
