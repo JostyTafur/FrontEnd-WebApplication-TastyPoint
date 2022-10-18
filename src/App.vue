@@ -1,6 +1,6 @@
 <template>
   <div>
-    <DashBoard></DashBoard>
+    <Login></Login>
   </div>
   <RouterView />
 </template>

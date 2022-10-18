@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import {NotificationsApiService} from "./services/notifications-api.service.js"
+import {NotificationsApiService} from "../services/notifications-api.service.js"
 export default{
   name: "Notifications",
   data(){
