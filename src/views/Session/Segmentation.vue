@@ -26,8 +26,8 @@
 
             </div>
             <div class="inputs">
-              <h4>Email</h4>
-              <pv-inputtext type="text" placeholder="Enter email" class="inp"></pv-inputtext>
+              <h4>Specify your type of business</h4>
+              <pv-inputtext type="text" placeholder="Restaurant, dining room, etc." class="inp"></pv-inputtext>
             </div>
 
 
