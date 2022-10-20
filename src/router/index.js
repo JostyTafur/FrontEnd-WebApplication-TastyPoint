@@ -78,6 +78,19 @@ const router = createRouter({
         {
           path: '/business/settings',
           component: ()=> import("../views/Business/Settings.vue")
+        },
+        {
+          path: '/business/consumerView',
+          component: () => import('../views/Business/ConsumerView.vue')
+        },
+        {
+          path: '/business/postDish',
+          component: () => import('../views/Business/PostDish.vue')
+        },
+        {
+          path: '/business/editPost:id',
+          name: 'edit',
+          component: () => import('../views/Business/EditPost.vue')
         }
       ]
     }
