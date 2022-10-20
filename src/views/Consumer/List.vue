@@ -1,6 +1,6 @@
 <template>
   <div class="search">
-    <input class="LoginInput"
+    <input class="Input"
            type="text"
            v-model="search"
            placeholder=" Search foods dishes, supplies  or restaurants"
