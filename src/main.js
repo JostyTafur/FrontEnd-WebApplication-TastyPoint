@@ -18,6 +18,8 @@ import InputText from "primevue/inputtext";
 import RadioButton from "primevue/radiobutton";
 import Password from "primevue/password";
 import Dropdown from "primevue/dropdown";
+import Textarea from "primevue/textarea";
+import Checkbox from "primevue/checkbox";
 import './assets/main.css'
 
 const app = createApp(App)
@@ -35,5 +37,7 @@ app.component('pv-inputtext', InputText)
 app.component('pv-radiobutton', RadioButton)
 app.component('pv-password', Password)
 app.component('pv-dropdown', Dropdown)
+app.component('pv-textarea', Textarea)
+app.component('pv-checkbox', Checkbox)
 app.mount('#app')
 

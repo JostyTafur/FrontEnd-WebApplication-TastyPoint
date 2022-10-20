@@ -10,16 +10,6 @@
           <h2 class="titleCard">Forgot your Password?</h2>
         </template>
         <template #content>
-            <div class="inputs">
-              <h4>Enter your actual password</h4>
-              <pv-password id="password"
-                           v-model="v$.passwordOld.$model"
-                           :class="{'p-invalid':v$.passwordOld.$invalid && submitted}"
-                           placeholder="Enter actual password" :feedback="false" toggleMask></pv-password>
-              <small v-if="(v$.passwordOld.$invalid && submitted) || v$.passwordOld.$pending.$response"
-                     class="p-error">{{v$.passwordOld.required.$message.replace('Value', 'Password')}}</small>
-            </div>
-          <br>
           <div class="inputs">
             <h4>Enter your new password</h4>
             <pv-password id="password"
@@ -55,16 +45,12 @@ export default{
   setup: () => ({ v$: useVuelidate() }),
   data(){
     return{
-      passwordOld: '',
       passwordNew: '',
       submitted: false,
     }
   },
   validations(){
     return {
-      passwordOld: {
-        required
-      },
       passwordNew: {
         required
       }

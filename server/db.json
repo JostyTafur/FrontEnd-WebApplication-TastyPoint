@@ -43,7 +43,7 @@
       "title": "End of the month offer!",
       "subtitle": "At PakosRest we offer you a 60% discount for the purchase of a plate of food and an input.",
       "content": "The offer is only valid between September 10 to September 30, 2022. The offer is only granted to people who purchase a plate of food and at least one input in the same purchase.If you do not comply with any of the above points, the discount will not be applied.",
-      "image": "./src/assets/images/notifications-1.png"
+      "image": "https://larepublica.pe/resizer/W3rBQsk0lyJn04QcRk2gW4_sBuM=/500x272/top/larepublica.pe/resizer/pCBq-Yq_HrMf5efkbeOEtA87CxM=/500x272/top/smart/larepublica.pe/resizer/ir4I0Zzr9or4-f2um9IrvGHuQDc=/500x272/top/smart/arc-anglerfish-arc2-prod-gruporepublica.s3.amazonaws.com/public/SWC3OMMD3FHN3KZZJYXFV6Q3IE.png"
     },
     {
       "id": 1,
@@ -58,6 +58,13 @@
       "subtitle": "Juanito's published the dish: Steak a lo poor. Get it before it runs out.",
       "content": "",
       "image": ""
+    },
+    {
+      "title": "2x1 in all dishes of our published dishes",
+      "subtitle": "Enjoy now",
+      "content": "Only for today, you have buy: \n- Chicken with fries potatoes\n- Broaster chicken \n- Oriental rice",
+      "image": "https://cuponassets.cuponatic-latam.com/backendPe/uploads/imagenes_descuentos/71732/9d42e13acb612ac1b33bdee57560d789ba6cef7d.XL2.jpg",
+      "id": 5
     }
   ],
   "orders": [
