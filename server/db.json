@@ -67,6 +67,30 @@
       "id": 5
     }
   ],
+  "posts": [
+    {
+      "id": 1,
+      "restaurantname": "Cevichando",
+      "producttype": "Supplies",
+      "productname": "Parboiled Potato",
+      "description": "Boiled potatoes left over from the preparation of a soup of the day",
+      "deliverymethod": "Delivery",
+      "favorite": false,
+      "price": 12,
+      "image": "https://www.diariamenteali.com/medias/receta-de-papas-sancochadas-con-aroma-de-pachamanca-1900Wx500H?context=bWFzdGVyfGltYWdlc3wyMjEwMTd8aW1hZ2UvanBlZ3xoOTYvaGZhLzkwNzQxMzAxNTc1OTgvcmVjZXRhLWRlLXBhcGFzLXNhbmNvY2hhZGFzLWNvbi1hcm9tYS1kZS1wYWNoYW1hbmNhXzE5MDBXeDUwMEh8NTM3MTJiMzI2YmQ2OTAyY2UzOGNkNDFlNTIxZTg4ZmRmZWVhMDE5OWM2YmI0Y2I1NmE4ZDNmYmRkZTg2Yzc1Nw"
+    },
+    {
+      "id": 2,
+      "restaurantname": "Cevichando",
+      "producttype": "Dinner Plate",
+      "productname": "Rice with chicken",
+      "description": "Consists of cooked rice and its chicken prey is placed on top.",
+      "deliverymethod": "Delivery",
+      "favorite": false,
+      "price": 10,
+      "image": "https://comidasperuanas.net/wp-content/uploads/2015/07/Arroz-con-pollo-peruano.jpg"
+    }
+  ],
   "orders": [
     {
       "id": 0,
