@@ -1,31 +1,30 @@
 <template>
-  <div class="search">
-    <input class="Input"
-           type="text"
-           v-model="search"
-           placeholder=" Search foods dishes, supplies  or restaurants"
-           v-on:click="putSearch(true)" v-on:mouseenter="putSearch(true)" v-on:mouseleave="unputSearch(true)">
-    <i class="pi pi-search"  style="font-size: 1rem; color:#000000;position:absolute; margin: -1.5rem 10rem 0rem 31.5rem;"></i>
-  </div>
+
   <div class="list">
     <div class="title">
-      <h2 v-if="textS==''">Close to your area</h2>
-      <h2 v-else>{{textS}}</h2>
+      <h2>Catalog of products and supplies:</h2>
     </div>
-
+    <div class="buttons-catalog">
+      <router-link to="/business/catalogue">
+        <pv-button class="my-view">My View</pv-button>
+      </router-link>
+      <router-link to="/business/postDish">
+        <pv-button class="post-new">Post New</pv-button>
+      </router-link>
+    </div>
     <pv-scrollpanel style="width:99%; height: 80vh">
       <div class="cards">
         <pv-card  v-for="dish of filteredDishes" :key="dish.id">
           <template #header>
-            <router-link :to="{ name: 'detail', params: {id:dish.id}}">
-              <img class="img-card" :src="dish.image" alt=""/>
-            </router-link>
-            <div class="price font-Mont">Price: S/{{dish.price}}</div>
+            <a href="/business/catalogue">
+              <img class="img-card" :src="dish.image"/>
+            </a>
+            <div class="price">Price: {{dish.price}}</div>
 
           </template>
           <template #title>
             <div class="title-card">
-              <div class="rest-name font-Mont">{{dish.restaurantname}}</div>
+              <div class="rest-name">{{dish.restaurantname}}</div>
               <div class="icon-card">
                 <a v-on:click="updateFavorite(dish)">
                   <i :class="[dish.favorite? 'pi pi-heart-fill' : 'pi pi-heart']" style="font-size: 2rem"></i>
@@ -35,7 +34,7 @@
 
           </template>
           <template #content>
-            <div class="content-card font-Mont">
+            <div class="content-card">
               <div>
                 Product type: {{dish.producttype}}
               </div>
@@ -52,9 +51,9 @@
 </template>
 
 <script>
-import {DishesApiService} from "/src/views/services/dishes-api.service.js"
+import {PostsApiService} from "../services/catalog-api.service";
 export default {
-  name: "List",
+  name: "ConsumerView",
   data() {
     return {
       search: "",
@@ -66,7 +65,7 @@ export default {
   },
   created() {
     try {
-      this.dishesService = new DishesApiService();
+      this.dishesService = new PostsApiService();
       this.dishesService.getAll().then((response) => {
         this.dishes = response.data;
         console.log(this.dishes);
@@ -81,48 +80,39 @@ export default {
 
     }
   },
-  methods: {
-    updateFavorite(dish) {
-      this.dishesService.patch(dish.id, {"favorite": !dish.favorite});
-      dish.favorite = !dish.favorite;
-    },
-    putSearch() {
-
-      this.textS = "Search Results";
-
-    },
-    unputSearch() {
-
-      this.textS = "Close to your area";
-
-    }
-  }
 }
 </script>
 
 <style scoped>
 .title{
-  margin: 10px 40px 0 60px;
+  margin: 10px 40px 0 30px;
   grid-column: 1;
   grid-row: 1;
   justify-self: start;
-}
-.font-Mont{
-  font-family: 'Montserrat', sans-serif;
-}
-input{
-  display: flex;
-  align-items: center;
-  margin: 20px 20px 0 20px;
-  width: 77vw;
-  height: 2rem;
-  border-radius: 10px;
-  font-family: Montserrat;
+  color:black;
+
 }
 .list{
   display: grid;
   grid-template-columns: 1fr;
   justify-content: start;
+}
+.my-view{
+  background: #F9731C;
+  margin-right:20px;
+  font-family: 'Montserrat';
+}
+.buttons-catalog{
+  justify-self: end;
+  margin-right:4vw;
+  margin-bottom: 0.4vw;
+  margin-top: 1vw;
+
+}
+.post-new{
+  background: #3F1602;
+  margin-left: 20px;
+  font-family: 'Montserrat';
 }
 .cards{
   margin: 5px;

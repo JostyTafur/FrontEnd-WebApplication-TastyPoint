@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import SidebarBusiness from '../../components/sidebar-business.component.vue'
+import SidebarBusiness from '../components/sidebar-business.component.vue'
 export default {
   name: "DashBoard-business",
   components: {SidebarBusiness}

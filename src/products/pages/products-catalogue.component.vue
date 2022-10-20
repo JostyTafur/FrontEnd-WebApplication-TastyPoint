@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import {PostsApiService} from "@/views/services/catalog-api.service";
+import {PostsApiService} from "../services/catalog-api.service";
 export default{
   name: "Catalog",
 

@@ -1,5 +1,5 @@
 {
-  "dishes": [
+  "products": [
     {
       "id": 0,
       "restaurantname": "7 sopas",
@@ -24,7 +24,7 @@
       "price": 7,
       "producttype": "input",
       "productname": "Grilled Chicken",
-      "favorite": true,
+      "favorite": false,
       "image": "https://elcomercio.pe/resizer/ii0EiWdpMP9_DsJzJ3whAirXg3U=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/WKLKU6YQTJEZJLSWM3CUZZ37AA.jpg"
     },
     {
@@ -37,7 +37,7 @@
       "image": "https://recetascocinaperuana.com/wp-content/uploads/2020/08/arroz-con-mariscos.jpg"
     }
   ],
-  "notifications": [
+  "promotions": [
     {
       "id": 0,
       "title": "End of the month offer!",
@@ -69,15 +69,15 @@
   ],
   "posts": [
     {
-      "id": 1,
       "restaurantname": "Cevichando",
-      "producttype": "Supplies",
-      "productname": "Parboiled Potato",
-      "description": "Boiled potatoes left over from the preparation of a soup of the day",
-      "deliverymethod": "Delivery",
-      "favorite": false,
-      "price": 12,
-      "image": "https://www.diariamenteali.com/medias/receta-de-papas-sancochadas-con-aroma-de-pachamanca-1900Wx500H?context=bWFzdGVyfGltYWdlc3wyMjEwMTd8aW1hZ2UvanBlZ3xoOTYvaGZhLzkwNzQxMzAxNTc1OTgvcmVjZXRhLWRlLXBhcGFzLXNhbmNvY2hhZGFzLWNvbi1hcm9tYS1kZS1wYWNoYW1hbmNhXzE5MDBXeDUwMEh8NTM3MTJiMzI2YmQ2OTAyY2UzOGNkNDFlNTIxZTg4ZmRmZWVhMDE5OWM2YmI0Y2I1NmE4ZDNmYmRkZTg2Yzc1Nw"
+      "producttype": "Dinner Plate",
+      "productname": "Pizza",
+      "description": "Pizza",
+      "deliverymethod": "Face-to-face",
+      "price": "20",
+      "favourite": false,
+      "image": "https://elcomercio.pe/resizer/ii0EiWdpMP9_DsJzJ3whAirXg3U=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/WKLKU6YQTJEZJLSWM3CUZZ37AA.jpg",
+      "id": 1
     },
     {
       "id": 2,

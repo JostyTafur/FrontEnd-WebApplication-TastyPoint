@@ -5,22 +5,22 @@
         </div>
       <pv-scrollpanel style="width:99%; height: 80vh">
         <div class="cards">
-          <pv-card  v-for="dish of dishes" :key="dish.favorite" v-show="dish.favorite">
+          <pv-card  v-for="product of products" :key="product.favorite" v-show="product.favorite">
             <template #header>
               <div class="header-card">
-                <a href="/list">
-                  <img class="img-card" :src="dish.image" alt=""/>
-                </a>
-                <div class="price">Price: {{dish.price}}</div>
+                <router-link :to="{ name: 'detail', params: {id:product.id}}">
+                  <img class="img-card" :src="product.image" alt=""/>
+                </router-link>
+                <div class="price">Price: {{product.price}}</div>
 
               </div>
             </template>
             <template #title>
               <div class="title-card">
-                <div class="rest-name">{{dish.restaurantname}}</div>
+                <div class="rest-name">{{product.restaurantname}}</div>
                 <div class="icon-card">
-                  <a v-on:click="updateFavorite(dish)">
-                    <i :class="[dish.favorite? 'pi pi-heart-fill' : 'pi pi-heart']" style="font-size: 2rem"></i>
+                  <a v-on:click="updateFavorite(product)">
+                    <i :class="[product.favorite? 'pi pi-heart-fill' : 'pi pi-heart']" style="font-size: 2rem"></i>
                   </a>
                 </div>
               </div>
@@ -29,10 +29,10 @@
             <template #content>
               <div class="content-card">
                 <div>
-                  Product type: {{dish.producttype}}
+                  Product type: {{product.producttype}}
                 </div>
                 <div>
-                  Product name: {{dish.productname}}
+                  Product name: {{product.productname}}
                 </div>
               </div>
             </template>
@@ -45,21 +45,21 @@
 </template>
 
 <script>
-import {DishesApiService} from "/src/views/services/dishes-api.service.js"
+import {ProductsApiService} from "/src/products/services/products-api.service.js"
 export default{
     name: "List",
     data(){
         return {
-            dishes:[],
-            dishesService: null
+            products:[],
+            productsService: null
         };
     },
     created(){
         try{
-            this.dishesService = new DishesApiService();
-            this.dishesService.getAll().then((response)=>{
-            this.dishes = response.data;
-            console.log(this.dishes);
+            this.productsService = new ProductsApiService();
+            this.productsService.getAll().then((response)=>{
+            this.products = response.data;
+            console.log(this.products);
         });
         }
         catch(e){
@@ -67,9 +67,9 @@ export default{
         }
     },
     methods:{
-        updateFavorite(dish){
-            this.dishesService.patch(dish.id, {"favorite": !dish.favorite});
-            dish.favorite = !dish.favorite;
+        updateFavorite(product){
+            this.productsService.patch(product.id, {"favorite": !product.favorite});
+            product.favorite = !product.favorite;
         }
     }
 }

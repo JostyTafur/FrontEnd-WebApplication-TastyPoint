@@ -15,7 +15,7 @@
           <template #header>
             <div class="image-upload">
               <label for="file-input">
-                <img class="image-post" src="../../assets/images/AddImage.png" alt="">
+                <img class="image-post" src="../../assets/images/EditImage.png" alt="">
               </label>
               <input id="file-input" type="file" />
             </div>
@@ -27,7 +27,7 @@
               </div>
               <br>
               <div class="content-card">Product Name:
-                <pv-inputtext v-model="post.productname" style="width:16.7vw;height:1vw;align-content:center" type="text" id="product-type" ></pv-inputtext>
+                <pv-inputtext v-model="post.productname" style="width:16.7vw;height:1vw" type="text" id="product-type" ></pv-inputtext>
               </div>
               <br>
               <div  class="content-card">Description:</div>
@@ -52,7 +52,7 @@
                   <pv-button class="cancel-button">Cancel</pv-button>
                 </router-link>
                 <router-link to="/business/catalogue">
-                  <pv-button class="add-button" @click="savePost">Post</pv-button>
+                  <pv-button class="add-button" @click="savePost">To Update</pv-button>
                 </router-link>
               </div>
             </div>
@@ -65,24 +65,27 @@
 </template>
 
 <script>
-import {PostsApiService} from "@/views/services/catalog-api.service";
+import {PostsApiService} from "../services/catalog-api.service";
 
 export default{
-  name: "PostDish",
+  name: "EditPost",
   components: {},
   data(){
     return {
       posts:[],
       catalogService: null,
       post: {},
+      delivery:null,
+      id: Number,
       productTypes:[
         {name: 'Dinner Plate', code: 'Dinner Plate'},
         {name: 'Supplies', code: 'Supplies'}
       ],
-      delivery:null,
     };
   },
   created(){
+    this.id = this.$route.params.id
+
     try{
       this.catalogService = new PostsApiService();
       this.catalogService.getAll().then((response)=>{
@@ -117,17 +120,16 @@ export default{
       return this.posts.findIndex((tutorial) => tutorial.id === id);
     },
     savePost() {
-
-        this.post.id = 0;
         console.log(this.post);
         this.post = this.getStorablePost(this.post);
-        this.catalogService.create(this.post)
+        this.catalogService
+            .update(this.id, this.post)
             .then((response) => {
-              this.post = this.getDisplayablePost(response.data);
-              this.posts.push(this.post);
+              console.log(response.data.id)
+              this.posts[this.findIndexById(this.id)] =
+                  this.getDisplayablePost(response.data);
               console.log(response);
             });
-
       this.post = {};
     },
   }

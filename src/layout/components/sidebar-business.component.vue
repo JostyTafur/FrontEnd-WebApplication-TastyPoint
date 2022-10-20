@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar">
     <div class="title">
-      <img src="../assets/images/logo-dashb.png" alt="logo" class="logo-dashb"/>
+      <img src="../../assets/images/logo-dashb.png" alt="logo" class="logo-dashb"/>
       <div>
         <h2>TastyPoint</h2>
       </div>

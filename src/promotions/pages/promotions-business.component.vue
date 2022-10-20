@@ -89,7 +89,7 @@
 <script>
 import {email,required} from '@vuelidate/validators'
 import {useVuelidate} from '@vuelidate/core'
-import {NotificationsApiService} from "../services/notifications-api.service";
+import {PromotionsApiService} from "../services/promotions-api.service";
 
 export default {
   setup: () => ({ v$: useVuelidate() }),
@@ -116,7 +116,7 @@ export default {
   },
   created(){
     try{
-      this.notifService = new NotificationsApiService();
+      this.notifService = new PromotionsApiService();
       this.notifService.getAll().then((response)=>{
         this.notifications = response.data;
         console.log(this.notifications);

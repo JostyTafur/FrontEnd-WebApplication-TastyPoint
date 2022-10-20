@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import {NotificationsApiService} from "../services/notifications-api.service.js"
+import {PromotionsApiService} from "../services/promotions-api.service.js"
 export default{
   name: "Notifications",
   data(){
@@ -39,7 +39,7 @@ export default{
   },
   created(){
     try{
-      this.notifService = new NotificationsApiService();
+      this.notifService = new PromotionsApiService();
       this.notifService.getAll().then((response)=>{
         this.notifications = response.data;
         console.log(this.notifications);
