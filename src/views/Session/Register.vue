@@ -54,6 +54,11 @@
                    class="p-error">{{v$.password.required.$message.replace('Value', 'Password')}}</small>
           </div>
 
+          <div class="checks">
+            <pv-checkbox id="accept" name="accept" value="Accept" v-model="v$.accept.$model" :class="{'p-invalid':v$.accept.$invalid && submitted}" />
+            <label for="accept" :class="{'p-error': v$.accept.$invalid && submitted}" class="label-terms">I agree to the terms and conditions*</label>
+          </div>
+
           <div>
               <pv-inputtext class="btnRegister" type="submit" value="Register"></pv-inputtext>
           </div>
@@ -86,7 +91,8 @@ export default{
       username: '',
       Email: '',
       password: '',
-      submitted: false
+      submitted: false,
+      accept: null
     }
   },
   validations(){
@@ -99,6 +105,9 @@ export default{
         email
       },
       password: {
+        required
+      },
+      accept: {
         required
       }
     }
@@ -233,5 +242,18 @@ export default{
 }
 .btnA{
   background-color: black;
+}
+.checks{
+  display: grid;
+  grid-template-columns: 10% 90%;
+  padding: 10px 20px
+}
+#accept{
+  justify-self: center;
+  align-self: center;
+}
+.label-terms{
+  justify-self: start;
+  align-self: center;
 }
 </style>
