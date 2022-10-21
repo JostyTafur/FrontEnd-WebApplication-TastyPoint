@@ -68,7 +68,7 @@
           <i class="pi pi-exclamation-triangle mr-3"
              style="font-size: 2rem"/>
           <span style="font-family: 'Montserrat', sans-serif">
-          Are you sure you want to sign out?
+          Are you sure you want to log out?
         </span>
         </div>
         <template #footer>
@@ -167,6 +167,10 @@ export default {
 
 .p-button{
   color: black;
+}
+.confirmation-content{
+  background-color: #FDFBEF;
+  color: #3F1602;
 }
 
 </style>

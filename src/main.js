@@ -22,6 +22,7 @@ import Textarea from "primevue/textarea";
 import Checkbox from "primevue/checkbox";
 import Image from 'primevue/image';
 import './assets/main.css'
+import Panel from "primevue/panel";
 
 const app = createApp(App)
 
@@ -41,5 +42,6 @@ app.component('pv-dropdown', Dropdown)
 app.component('pv-textarea', Textarea)
 app.component('pv-checkbox', Checkbox)
 app.component('pv-image', Image)
+app.component('pv-panel', Panel)
 app.mount('#app')
 
