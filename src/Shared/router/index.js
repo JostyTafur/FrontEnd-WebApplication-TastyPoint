@@ -33,15 +33,15 @@ const router = createRouter({
         },
         {
           path: '/consumer/favorites',
-          component: () => import("../../Selling/pages/product-favorites.component.vue")
+          component: () => import("../../Social/pages/product-favorites.component.vue")
         },
         {
           path: '/consumer/notifications',
           component: () => import("../../Publishing/pages/promotions-notifications.component.vue")
         },
         {
-          path: '/consumer/orders',
-          component: () => import("../../orders/pages/consumer-orders.component.vue")
+          path: '/consumer/Ordering',
+          component: () => import("../../Ordering/pages/consumer-orders.component.vue")
         },
         {
           path: '/consumer/settings',
@@ -55,7 +55,7 @@ const router = createRouter({
         {
           path: '/consumer/Profiles-food-store',
           name: 'Profiles-food-store',
-          component: () => import('../../Profiles/pages/profile-food-store.component.vue')
+          component: () => import('../../Social/pages/profile-food-store.component.vue')
         }
       ]
     },
@@ -70,15 +70,15 @@ const router = createRouter({
         },
         {
           path: '/business/Profiles',
-          component: () => import("../../Profiles/pages/profile-food-store-settings.component.vue")
+          component: () => import("../../Social/pages/profile-food-store-settings.component.vue")
         },
         {
           path: '/business/Publishing',
           component: () => import("../../Publishing/pages/promotions-business.component.vue")
         },
         {
-          path: '/business/orders',
-          component: ()=> import("../../orders/pages/business-orders.component.vue")
+          path: '/business/Ordering',
+          component: ()=> import("../../Ordering/pages/business-orders.component.vue")
         },
         {
           path: '/business/settings',
