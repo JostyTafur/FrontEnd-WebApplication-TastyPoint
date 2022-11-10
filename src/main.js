@@ -6,7 +6,7 @@ import 'primevue/resources/primevue.min.css';
 import 'primeicons/primeicons.css';
 
 import App from './App.vue'
-import router from './shared/router'
+import router from './Shared/router'
 import PrimeVue from 'primevue/config'
 import Menu from 'primevue/menu'
 import Sidebar from 'primevue/sidebar'

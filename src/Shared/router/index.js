@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DashBoardConsumer from '../../layout/pages/dashboard-consumer.component.vue'
 import DashBoardBusiness from "../../layout/pages/dashboard-business.component.vue";
-import Login from "../../security/pages/sign-in.component.vue";
+import Login from "../../Security/pages/sign-in.component.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -12,15 +12,15 @@ const router = createRouter({
     },
     {
       path: '/register',
-      component: () => import('../../security/pages/sign-up.component.vue')
+      component: () => import('../../Security/pages/sign-up.component.vue')
     },
     {
       path: '/segmentation',
-      component: () => import('../../security/pages/segmentation.component.vue')
+      component: () => import('../../Security/pages/segmentation.component.vue')
     },
     {
       path: '/forgotpassword',
-      component: () => import('../../security/pages/forgot-password.component.vue')
+      component: () => import('../../Security/pages/forgot-password.component.vue')
     },
     {
       path: '/consumer',
@@ -37,7 +37,7 @@ const router = createRouter({
         },
         {
           path: '/consumer/notifications',
-          component: () => import("../../promotions/pages/promotions-notifications.component.vue")
+          component: () => import("../../Publishing/pages/promotions-notifications.component.vue")
         },
         {
           path: '/consumer/orders',
@@ -45,7 +45,7 @@ const router = createRouter({
         },
         {
           path: '/consumer/settings',
-          component: () => import('../../profile/pages/profile-consumer-settings.component.vue')
+          component: () => import('../../Profiles/pages/profile-consumer-settings.component.vue')
         },
         {
           path: '/consumer/detail/:id',
@@ -53,9 +53,9 @@ const router = createRouter({
           component: () => import('../../Selling/components/product-details.component.vue')
         },
         {
-          path: '/consumer/profile-food-store',
-          name: 'profile-food-store',
-          component: () => import('../../profile/pages/profile-food-store.component.vue')
+          path: '/consumer/Profiles-food-store',
+          name: 'Profiles-food-store',
+          component: () => import('../../Profiles/pages/profile-food-store.component.vue')
         }
       ]
     },
@@ -69,12 +69,12 @@ const router = createRouter({
           component: ()=> import("../../Selling/pages/products-catalogue.component.vue")
         },
         {
-          path: '/business/profile',
-          component: () => import("../../profile/pages/profile-food-store-settings.component.vue")
+          path: '/business/Profiles',
+          component: () => import("../../Profiles/pages/profile-food-store-settings.component.vue")
         },
         {
-          path: '/business/promotions',
-          component: () => import("../../promotions/pages/promotions-business.component.vue")
+          path: '/business/Publishing',
+          component: () => import("../../Publishing/pages/promotions-business.component.vue")
         },
         {
           path: '/business/orders',
@@ -82,7 +82,7 @@ const router = createRouter({
         },
         {
           path: '/business/settings',
-          component: ()=> import("../../profile/pages/profile-business-settings.component.vue")
+          component: ()=> import("../../Profiles/pages/profile-business-settings.component.vue")
         },
         {
           path: '/business/consumerView',
