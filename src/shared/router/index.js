@@ -29,11 +29,11 @@ const router = createRouter({
       children: [
         {
           path: '/consumer/list',
-          component: () => import('../../products/pages/product-list.component.vue')
+          component: () => import('../../Selling/pages/product-list.component.vue')
         },
         {
           path: '/consumer/favorites',
-          component: () => import("../../products/pages/product-favorites.component.vue")
+          component: () => import("../../Selling/pages/product-favorites.component.vue")
         },
         {
           path: '/consumer/notifications',
@@ -50,7 +50,7 @@ const router = createRouter({
         {
           path: '/consumer/detail/:id',
           name: 'detail',
-          component: () => import('../../products/components/product-details.component.vue')
+          component: () => import('../../Selling/components/product-details.component.vue')
         },
         {
           path: '/consumer/profile-food-store',
@@ -66,7 +66,7 @@ const router = createRouter({
       children: [
         {
           path: '/business/catalogue',
-          component: ()=> import("../../products/pages/products-catalogue.component.vue")
+          component: ()=> import("../../Selling/pages/products-catalogue.component.vue")
         },
         {
           path: '/business/profile',
@@ -86,16 +86,16 @@ const router = createRouter({
         },
         {
           path: '/business/consumerView',
-          component: () => import('../../products/components/product-view-post.component.vue')
+          component: () => import('../../Selling/components/product-view-post.component.vue')
         },
         {
           path: '/business/postDish',
-          component: () => import('../../products/components/product-create-post.component.vue')
+          component: () => import('../../Selling/components/product-create-post.component.vue')
         },
         {
           path: '/business/editPost:id',
           name: 'edit',
-          component: () => import('../../products/components/product-edit-post.component.vue')
+          component: () => import('../../Selling/components/product-edit-post.component.vue')
         }
       ]
     }

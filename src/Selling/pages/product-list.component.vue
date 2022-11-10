@@ -25,7 +25,7 @@
           </template>
           <template #title>
             <div class="title-card">
-              <div class="rest-name font-Mont">{{product.restaurantname}}</div>
+              <div class="rest-name font-Mont">{{product.productname}}</div>
               <div class="icon-card">
                 <a v-on:click="updateFavorite(product)">
                   <i :class="[product.favorite? 'pi pi-heart-fill' : 'pi pi-heart']" style="font-size: 2rem"></i>
@@ -37,10 +37,7 @@
           <template #content>
             <div class="content-card font-Mont">
               <div>
-                Product type: {{product.producttype}}
-              </div>
-              <div>
-                Product name: {{product.productname}}
+                Restaurant: {{product.restaurantname}}
               </div>
             </div>
           </template>
@@ -52,7 +49,7 @@
 </template>
 
 <script>
-import {ProductsApiService} from "/src/products/services/products-api.service.js"
+import {ProductsApiService} from "../services/products-api.service"
 export default {
   name: "List",
   data() {
@@ -153,8 +150,8 @@ input{
 }
 .title-card{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  font-size: 20px;
+  grid-template-columns: 3fr 1fr;
+  font-size: 18px;
   margin-top: -25px;
 }
 .rest-name{

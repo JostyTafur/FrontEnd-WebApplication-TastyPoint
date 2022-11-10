@@ -1,6 +1,6 @@
 <template>
   <div style="display: grid; grid-template-columns: 10% 90%; margin: 10px">
-    <router-link to="consumer/detail/1" style="justify-self: center; align-self: center">
+    <router-link to="/consumer/detail/1" style="justify-self: center; align-self: center">
       <i class="pi pi-arrow-left" style="font-size: 2rem;"></i>
     </router-link>
     <h1>Profile Store Food</h1>
@@ -125,18 +125,13 @@ input {
 
 .card{
   width: 100%;
-  margin: 90px;
+  margin: 20px;
   border-radius: 29px;
   overflow: hidden;
   background:white;
   box-shadow: 0px 1px 80px rgba(0,0,0,0.2);
-  transition: all 400ms ease-out;
   cursor: default;
 
-}
-.card:hover{
-  box-shadow: 15px 15px 80px rgba(0,0,0,0.4);
-  transform: translateY(-3%);
 }
 .card img{
   width: 100%;
