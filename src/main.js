@@ -6,7 +6,7 @@ import 'primevue/resources/primevue.min.css';
 import 'primeicons/primeicons.css';
 
 import App from './App.vue'
-import router from './shared/router'
+import router from './Shared/router'
 import PrimeVue from 'primevue/config'
 import Menu from 'primevue/menu'
 import Sidebar from 'primevue/sidebar'
@@ -20,6 +20,7 @@ import Password from "primevue/password";
 import Dropdown from "primevue/dropdown";
 import Textarea from "primevue/textarea";
 import Checkbox from "primevue/checkbox";
+import InputNumber from "primevue/inputnumber";
 import Image from 'primevue/image';
 import './assets/main.css'
 import Panel from "primevue/panel";
@@ -43,5 +44,6 @@ app.component('pv-textarea', Textarea)
 app.component('pv-checkbox', Checkbox)
 app.component('pv-image', Image)
 app.component('pv-panel', Panel)
+app.component("pv-inputnumber", InputNumber)
 app.mount('#app')
 

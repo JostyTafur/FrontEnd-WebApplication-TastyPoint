@@ -87,7 +87,7 @@
 </template>
 
 <script>
-import {email,required} from '@vuelidate/validators'
+import {required} from '@vuelidate/validators'
 import {useVuelidate} from '@vuelidate/core'
 import {PromotionsApiService} from "../services/promotions-api.service";
 

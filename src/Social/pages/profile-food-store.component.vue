@@ -1,71 +1,62 @@
 <template>
   <div style="display: grid; grid-template-columns: 10% 90%; margin: 10px">
-    <router-link to="/consumer/list" style="justify-self: center; align-self: center">
+    <router-link to="/consumer/detail/1" style="justify-self: center; align-self: center">
       <i class="pi pi-arrow-left" style="font-size: 2rem;"></i>
     </router-link>
-    <h1>Details Product</h1>
+    <h1>Profile Store Food</h1>
   </div>
-  <pv-scrollpanel style="width:99%; height: 82vh">
-    <div class="Detail">
+  <pv-scrollpanel style="width:99%; height: 80vh">
+  <div class = "Second-List">
       <div>
         <div class="container-card">
           <div class="card">
             <figure>
-              <img src="https://www.diariamenteali.com/medias/receta-de-papas-sancochadas-con-aroma-de-pachamanca-1900Wx500H?context=bWFzdGVyfGltYWdlc3wyMjEwMTd8aW1hZ2UvanBlZ3xoOTYvaGZhLzkwNzQxMzAxNTc1OTgvcmVjZXRhLWRlLXBhcGFzLXNhbmNvY2hhZGFzLWNvbi1hcm9tYS1kZS1wYWNoYW1hbmNhXzE5MDBXeDUwMEh8NTM3MTJiMzI2YmQ2OTAyY2UzOGNkNDFlNTIxZTg4ZmRmZWVhMDE5OWM2YmI0Y2I1NmE4ZDNmYmRkZTg2Yzc1Nw">
+              <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjutLq68aQWhCM3r2ZQwyAESH4wZrncEMlhNgHPIGIMZyD1au1A1NDmrfaxc4-c3gRvB74eEV0SRs1nGRdpVAPfRSz2VhMamub7HH85qGwhWRlkU-xCW188azm88OYYJPXjTX6zNkz_f7P_pAK8Q9QoyK2NbXIEMtb7izKaieQ8VB-WaMQ-fu8WBKadqA/w664-h139/imagen1.png">
             </figure>
             <div class="contenido-card">
-              <router-link to="/consumer/profile-food-store">
-                <a href="1">Restaurant: 7 Sopas</a>
-              </router-link>
-
-              <p>Product type: Supplies</p>
-              <p>Product name: Parboiled</p>
-              <p>Description: Boiled potatoes left over from the preparation of  a soup  of the day</p>
-              <p>Delivery methods:</p>
-              <p>Face-to-face</p>
-              <p>This store does not offer delivery</p>
-            </div>
-          </div>
-
-          <div class="segunda- card">
-            <div class="segunda- contenido-card">
-              <h3> Make an order: </h3>
-              <form>
-                <p>Quantity:</p>     <input type="text">
-                <p>Method Of Delivery:</p>  <input type="text">
-                <p>Delivery Adress :</p>  <input type="text">
-                <p>Total Price:      S./ </p>  <input type="text">
-                <p>Payment Method :</p>  <input type="text">
-                <p>Card Holder :</p>  <input type="text">
-                <p>Card number :</p>  <input type="text">
-                <p>Expiration Date :</p>  <input type="text">
-
-              </form>
+              <h3> Restaurants: 7 Soups </h3>
+              <h3>Description:</h3>
+              <p>Two level peruavian Industrial-style restaurant whit homemade dishes, such as hearty soups.</p>
+              <p>Service Options: On-Site Consumption - Door Pickup - Contactless Delivery.</p>
+              <p>Adress: Av. Arequipa 2394, Lince 15046</p>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.3536566926905!2d-77.03645868255614!3d-12.087923999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c85fce2817c3%3A0x417c88bcadfbfc05!2sAv.%20Arequipa%202394%2C%20Lince%2015046!5e0!3m2!1ses-419!2spe!4v1666144770684!5m2!1ses-419!2spe" width="850" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               <div>
-                <a href="2">Cancel</a>
-                <div class="space">
-                </div>
-                <a href="3">Pay and finish</a>
               </div>
+              <div>
+                <p>Delivery methods:</p>
+                <p>Face-to-face</p>
+                <p>This store does not offer delivery</p>
+                <h3> Leave comment and/or rating </h3>
+              </div>
+              <div>
+                <div class="contact content-body">
+                  <form method="POST" action="https://formspree.io/email@email.com">
+                    <input type="hidden" name="_subject" value="Contact request from personal website" />
+                    <textarea name="message" placeholder="Write your comment" required></textarea>
+                    <a href="4">Send</a>
+                  </form>
+                </div>
+              </div>
+              <h3>2 Comments:</h3>
+              <h3>paulina124</h3>
+              <h3>I love the attention, although they take a while. On the other hand, the delicios food.</h3>
+              <h3>josemendoza</h3>
+              <h3>The food is good, and   the  supplies and dishes are in good conditions. You  must try  one of     their soups if you are  lucky enough to have    leftovers</h3>
             </div>
           </div>
         </div>
       </div>
-    </div>
+  </div>
   </pv-scrollpanel>
-
 </template>
 
 <script>
 export default {
-  name: "DetailsDish",
+  name: "Profile",
   data(){
-    return {
-      id: Number
+    return{
+      clicked: true
     }
-  },
-  created() {
-    this.id = this.$route.params.id
   }
 }
 </script>
@@ -107,34 +98,6 @@ input {
   color: grey;
 }
 
-.btn {
-  position: absolute;
-  right: -10px;
-  top: 0px;
-  width: 50px;
-  height: 50px;
-  background: #D50000;
-  line-height: 70px;
-  border-radius: 45%;
-  text-align: center;
-  cursor: pointer;
-  transition: .7s;
-}
-
-.btn2 {
-  position: absolute;
-  right: -10px;
-  top: 0px;
-  width: 50px;
-  height: 50px;
-  background: #D50000;
-  line-height: 70px;
-  border-radius: 45%;
-  text-align: center;
-  cursor: pointer;
-  transition: .7s;
-}
-
 .btn p {
   font-size: 10px;
   color: white;
@@ -155,49 +118,20 @@ input {
 .container:hover i{
   transform: rotate(-360deg);
 }
-
-.btn:hover{
-  background: black;
-
-}
 .container-card{
   display: flex;
   margin: auto;
 }
-.title-cards{
-  width: 100%;
-  max-width: 1080px;
-  margin: auto;
-  padding: 100px;
-  margin-top: 30px;
-  text-align: center;
-  color: black;
-}
+
 .card{
   width: 100%;
-  margin: 90px;
+  margin: 20px;
   border-radius: 29px;
   overflow: hidden;
   background:white;
   box-shadow: 0px 1px 80px rgba(0,0,0,0.2);
-  transition: all 400ms ease-out;
   cursor: default;
 
-}
-
-.segunda-card{
-  width: 100%;
-  margin: 60px;
-  border-radius: 29px;
-  overflow: hidden;
-  background:brown;
-  box-shadow: 0px 1px 80px rgba(0,0,0,0.2);
-  transition: all 400ms ease-out;
-  cursor: default;
-}
-.card:hover{
-  box-shadow: 15px 15px 80px rgba(0,0,0,0.4);
-  transform: translateY(-3%);
 }
 .card img{
   width: 100%;
@@ -285,6 +219,8 @@ list{
 .contact textarea {
   height: 160px;
   resize: none;
+  background-color: #FDFBEF;
+  border: 2px solid black ;
 }
 
 .contact button {

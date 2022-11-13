@@ -10,6 +10,7 @@
           <template #title>
             <div class="p-card-title">
               <h3>Product: {{order.product}}</h3>
+              <h4>Restaurant: {{order.restaurant}}</h4>
             </div>
           </template>
           <template #content>
@@ -39,41 +40,13 @@
 </template>
 
 <script>
-
-/*No estoy segura de cómo incluir esto en el dbjson ;-;, debería cambiar el nombre?*/
+import {OrdersApiService} from "../services/orders-api.service";
 export default{
   name:'Orders',
   data(){
     return{
       text: '',
-      orders:[
-        {
-          "id": 0,
-          "product": "Rice with Chicken",
-          "productType": "Dinner",
-          "deliveryMethod": "face-to-face",
-          "paymentMethod": "Cash on delivery",
-          "consumer": "Patricia Bustamante",
-          "unitPrice": 7,
-          "quantity": 1,
-          "totalPrice": 7,
-          "dateTime": "09/13/2022 12:42 pm",
-          "orderAccepted": false
-        },
-        {
-          "id": 1,
-          "product": "Rice with Chicken",
-          "productType": "Dinner",
-          "deliveryMethod": "face-to-face",
-          "paymentMethod": "Cash on delivery",
-          "consumer": "Jenko del Águila",
-          "unitPrice": 5,
-          "quantity": 2,
-          "totalPrice": 10,
-          "date-time": "09/12/2022 02:30 pm",
-          "orderAccepted": false
-        }
-      ],
+      orders:[],
       orderService: null,
       order: {}
     };

@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import {ProductsApiService} from "/src/products/services/products-api.service.js"
+import {ProductsApiService} from "/src/Selling/services/products-api.service.js"
 export default{
     name: "List",
     data(){
