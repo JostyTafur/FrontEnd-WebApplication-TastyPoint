@@ -2,7 +2,7 @@
 
   <div class="list">
     <div class="title">
-      <h2>Catalog of products and supplies:</h2>
+      <h2>Catalog Of Products and Supplies:</h2>
     </div>
     <div class="buttons-catalog">
       <router-link to="/business/catalogue">
