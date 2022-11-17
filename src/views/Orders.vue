@@ -1,7 +1,7 @@
 <template>
   <div class="orders">
     <div class="title">
-      <h2>My order:</h2>
+      <h2>My Order:</h2>
     </div>
 
     <pv-scrollpanel style="width:99%; height: 82vh" class="custom">
