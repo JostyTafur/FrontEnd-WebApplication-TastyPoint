@@ -9,7 +9,7 @@
   </div>
   <div class="list">
     <div class="title">
-      <h2 v-if="textS==''">Close to your area</h2>
+      <h2 v-if="textS==''">Close To Your Area</h2>
       <h2 v-else>{{textS}}</h2>
     </div>
 
