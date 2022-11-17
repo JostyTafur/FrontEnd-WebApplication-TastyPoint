@@ -1,7 +1,7 @@
 <template>
   <div class="catalog">
     <div class="title">
-      <h2>Catalog of products and supplies:</h2>
+      <h2>Catalog Of Products And Supplies:</h2>
     </div>
     <div class="buttons-catalog">
       <router-link to="/business/consumerView">
