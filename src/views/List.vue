@@ -1,7 +1,7 @@
 <template>
     <div class="list">
         <div class="title">
-            <h2>Close to your area:</h2> 
+            <h2>Close To Your Area:</h2> 
         </div>
         <pv-scrollpanel style="width:99%; height: 80vh">
             <div class="cards">
