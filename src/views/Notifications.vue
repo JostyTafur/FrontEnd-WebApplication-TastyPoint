@@ -1,7 +1,7 @@
 <template>
     <div class="notifications">
     <div class="title">
-           <h2>Close to your area:</h2> 
+           <h2>Close    To Your Area:</h2> 
     </div>
         <pv-scrollpanel style="width:99%; height: 82vh" class="custom">
             <div class="cards">
