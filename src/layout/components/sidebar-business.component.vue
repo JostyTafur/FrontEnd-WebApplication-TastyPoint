@@ -17,7 +17,7 @@
           Catalogue
         </div>
       </router-link>
-      <router-link to="/business/profile" active-class="active" exact tag="button" class="side-btn">
+      <router-link to="/business/Profiles" active-class="active" exact tag="button" class="side-btn">
         <div class="link-container">
           <i class=" pi pi-user"></i>
           Profile

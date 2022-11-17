@@ -1,373 +1,241 @@
 <template>
-  <h1>Profile Food Store</h1>
-  <pv-scrollpanel style="width:99%; height: 82vh">
-    <div class="index-post">
-      <div class="contener">
-        <div class="image-contener">
-          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjutLq68aQWhCM3r2ZQwyAESH4wZrncEMlhNgHPIGIMZyD1au1A1NDmrfaxc4-c3gRvB74eEV0SRs1nGRdpVAPfRSz2VhMamub7HH85qGwhWRlkU-xCW188azm88OYYJPXjTX6zNkz_f7P_pAK8Q9QoyK2NbXIEMtb7izKaieQ8VB-WaMQ-fu8WBKadqA/w664-h139/imagen1.png">
-        </div>
-        <div class="meta-contener">
-          <form>
-            <p class="clasificacion">
-              <input id="radio1" type="radio" name="estrellas" value="5"><!--
-            --><label for="radio1">★</label><!--
-            --><input id="radio2" type="radio" name="estrellas" value="4"><!--
-            --><label for="radio2">★</label><!--
-            --><input id="radio3" type="radio" name="estrellas" value="3"><!--
-            --><label for="radio3">★</label><!--
-            --><input id="radio4" type="radio" name="estrellas" value="2"><!--
-            --><label for="radio4">★</label><!--
-            --><input id="radio5" type="radio" name="estrellas" value="1"><!--
-            --><label for="radio5">★</label>
-            </p>
-          </form>
-          <h2 class="title">Restaurant: 7 Soups</h2>
-          <span class="desc">Description</span>
-          <div>
-            <div class="contact content-body">
-              <form method="POST" action="https://formspree.io/email@email.com">
-                <input type="hidden" name="_subject" value="Contact request from personal website" />
-                <textarea name="message" placeholder="Two-level Peruvian industrial-stile restaurant with  homemade dishes, such as hearty soups." required></textarea>
-              </form>
-
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="meta-contener">
-            <form>
-              <p class="clasificacion">
-                <input id="radio1" type="radio" name="estrellas" value="5"><!--
-    --><label for="radio1">★</label><!--
-    --><input id="radio2" type="radio" name="estrellas" value="4"><!--
-    --><label for="radio2">★</label><!--
-    --><input id="radio3" type="radio" name="estrellas" value="3"><!--
-    --><label for="radio3">★</label><!--
-    --><input id="radio4" type="radio" name="estrellas" value="2"><!--
-    --><label for="radio4">★</label><!--
-    --><input id="radio5" type="radio" name="estrellas" value="1"><!--
-    --><label for="radio5">★</label>
-              </p>
-            </form>
-            <span class="desc">Service Options</span>
-            <form>
-              <p class="clasificacion">
-                <input id="radio1" type="radio" name="estrellas" value="5"><!--
-    --><label for="radio1">★</label><!--
-    --><input id="radio2" type="radio" name="estrellas" value="4"><!--
-    --><label for="radio2">★</label><!--
-    --><input id="radio3" type="radio" name="estrellas" value="3"><!--
-    --><label for="radio3">★</label><!--
-    --><input id="radio4" type="radio" name="estrellas" value="2"><!--
-    --><label for="radio4">★</label><!--
-    --><input id="radio5" type="radio" name="estrellas" value="1"><!--
-    --><label for="radio5">★</label>
-              </p>
-            </form>
-            <div>
-              <div class="contact content-body">
-                <form method="POST" action="https://formspree.io/email@email.com">
-                  <input type="hidden" name="_subject" value="Contact request from personal website" />
-                  <textarea name="message" placeholder="Consumption on the post - Withdrawals at the door -  Delivery without contact." required></textarea>
-                </form>
+  <div style="display: grid; grid-template-columns: 10% 90%; margin: 10px">
+    <router-link to="/consumer/detail/1" style="justify-self: center; align-self: center">
+      <i class="pi pi-arrow-left" style="font-size: 2rem;"></i>
+    </router-link>
+    <h1>Profile Store Food</h1>
+  </div>
+  <pv-scrollpanel style="width:99%; height: 80vh">
+    <div class = "Second-List">
+      <div>
+        <div class="container-card">
+          <div class="card">
+            <figure>
+              <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjutLq68aQWhCM3r2ZQwyAESH4wZrncEMlhNgHPIGIMZyD1au1A1NDmrfaxc4-c3gRvB74eEV0SRs1nGRdpVAPfRSz2VhMamub7HH85qGwhWRlkU-xCW188azm88OYYJPXjTX6zNkz_f7P_pAK8Q9QoyK2NbXIEMtb7izKaieQ8VB-WaMQ-fu8WBKadqA/w664-h139/imagen1.png">
+            </figure>
+            <div class="contenido-card">
+              <h3><img src="/src/assets/images/restaurant.png" alt="icon" style="width: 55px;height:50px;"> Restaurants: 7 Soups </h3>
+              <div class="restaurant-data">
+                <p>Description:</p>
+                <p>Two level peruvian Industrial-style restaurant whit homemade dishes, such as hearty soups.</p>
+                <p>Service Options: On-Site Consumption - Door Pickup - Contactless Delivery.</p>
+                <p>Address: Av. Arequipa 2394, Lince 15046.</p>
+                <p>Delivery methods:</p>
+                <p>Face-to-face.</p>
+                <p>This store does not offer delivery.</p>
+                <pv-button class="edit-info">Edit information</pv-button>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="button-contener">
-          <a href="#" class="button">Save Changes</a>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="index-post">
-      <div class="contener">
-
-
-        <div class="meta-contener">
-
-          <span class="desc">Adress:</span>
-          <div>
-            <div class="contact content-body">
-              <form method="POST" action="https://formspree.io/email@email.com">
-                <input type="hidden" name="_subject" value="Contact request from personal website" />
-                <textarea name="message" placeholder="Av Arequipa 2394, Lynx 15046" required></textarea>
-              </form>
-
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="meta-contener">
-
-            <span class="desc">Delivery Methods: </span>
-            <div>
-              <div class="contact content-body">
-                <form method="POST" action="https://formspree.io/email@email.com">
-                  <input type="hidden" name="_subject" value="Contact request from personal website" />
-                  <textarea name="message" placeholder="Face to face:  This store  does not offer  delivery " required></textarea>
-
-                </form>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="button-contener">
-          <a href="#" class="button">Save Changes</a>
-        </div>
-
-      </div>
-
-    </div>
-    <div class="index-post">
-
-      <div class="contener">
-
-
-
-        <div class="image-contener">
-          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjutLq68aQWhCM3r2ZQwyAESH4wZrncEMlhNgHPIGIMZyD1au1A1NDmrfaxc4-c3gRvB74eEV0SRs1nGRdpVAPfRSz2VhMamub7HH85qGwhWRlkU-xCW188azm88OYYJPXjTX6zNkz_f7P_pAK8Q9QoyK2NbXIEMtb7izKaieQ8VB-WaMQ-fu8WBKadqA/w664-h139/imagen1.png">
-        </div>
-        <div class="meta-contener">
-
-          <h2 class="title">Restaurant: 7 Soups</h2>
-          <span class="desc">Description: </span>
-          <span class="desc">Two-level Peruvian industrial-stile restaurant with  homemade dishes, such as hearty soups. </span>
-          <span class="desc">Service Options: Consumption on the post - Withdrawals at the door -  Delivery without contact. </span>
-          <span class="desc">Adress: Av Arequipa 2394, Lynx 15046.</span>
-          <span class="desc">Delivery methods: Face-to-face (This store does not offer delivery). </span>
-        </div>
-
-
-
-        <div class="button-contener">
-          <a href="#" class="button">Edit Information</a>
-        </div>
-
-
-      </div>
-
-    </div>
-
-    <div class="index-post">
-      <div class="contener">
-
-        <div class="image-contener">
-          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjutLq68aQWhCM3r2ZQwyAESH4wZrncEMlhNgHPIGIMZyD1au1A1NDmrfaxc4-c3gRvB74eEV0SRs1nGRdpVAPfRSz2VhMamub7HH85qGwhWRlkU-xCW188azm88OYYJPXjTX6zNkz_f7P_pAK8Q9QoyK2NbXIEMtb7izKaieQ8VB-WaMQ-fu8WBKadqA/w664-h139/imagen1.png">
-        </div>
-        <form>
-          <p class="clasificacion">
-            <input id="radio1" type="radio" name="estrellas" value="5"><!--
-    --><label for="radio1">★</label><!--
-    --><input id="radio2" type="radio" name="estrellas" value="4"><!--
-    --><label for="radio2">★</label><!--
-    --><input id="radio3" type="radio" name="estrellas" value="3"><!--
-    --><label for="radio3">★</label><!--
-    --><input id="radio4" type="radio" name="estrellas" value="2"><!--
-    --><label for="radio4">★</label><!--
-    --><input id="radio5" type="radio" name="estrellas" value="1"><!--
-    --><label for="radio5">★</label>
-          </p>
-        </form>
-        <div class="meta-contener">
-          <h2 class="title">Restaurant: 7 Soups</h2>
-          <span class="desc">Description: </span>
-          <span class="desc">Two-level Peruvian industrial-stile restaurant with  homemade dishes, such as hearty soups. </span>
-          <span class="desc">Service Options: Consumption on the post - Withdrawals at the door -  Delivery without contact. </span>
-          <span class="desc">Adress: Av Arequipa 2394, Lynx 15046.</span>
-          <span class="desc">Delivery methods: Face-to-face (This store does not offer delivery). </span>
-
-
-        </div>
-
-
-
-        <div class="button-contener">
-          <a href="#" class="button">Edit Information</a>
-        </div>
-
-
-      </div>
-
-    </div>
-
-    <div class="index-post">
-      <div class="contener">
-        <div class="meta-contener">
-          <form>
-            <p class="clasificacion">
-              <input id="radio1" type="radio" name="estrellas" value="5"><!--
-    --><label for="radio1">★</label><!--
-    --><input id="radio2" type="radio" name="estrellas" value="4"><!--
-    --><label for="radio2">★</label><!--
-    --><input id="radio3" type="radio" name="estrellas" value="3"><!--
-    --><label for="radio3">★</label><!--
-    --><input id="radio4" type="radio" name="estrellas" value="2"><!--
-    --><label for="radio4">★</label><!--
-    --><input id="radio5" type="radio" name="estrellas" value="1"><!--
-    --><label for="radio5">★</label>
-            </p>
-          </form>
-          <h2 class="title">2 Comments</h2>
-          <span class="desc">Paulina124: </span>
-          <span class="desc">I love tha attention, although they take  a while. On the other hand, the delicious food </span>
-          <h2 class="title">Replay to comment</h2>
-          <div>
-            <div>
-              <div class="contact content-body">
-                <form method="POST" action="https://formspree.io/email@email.com">
-
-                  <input type="hidden" name="_subject" value="Contact request from personal website" />
-
-                  <textarea name="message" placeholder="Replay comment... " required></textarea>
-
-                </form>
+              <div class="comment-section" style="margin-top:2rem ">
                 <div>
-                  <div class="button-contener">
-                    <a href="#" class="button">Send</a>
+                  <h3 style="font-size:20px;font-size:26px"> 2 Comments </h3>
+                </div>
+                <div>
+
+                </div>
+                <div class="comments">
+                  <h3>paulina124</h3>
+                  <h3>I love the attention, although they take a while. On the other hand, the delicios food.</h3>
+                  <div class="contact content-body">
+                    <form method="POST" action="https://formspree.io/email@email.com">
+                      <input type="hidden" name="_subject" value="Contact request from personal website" />
+                      <textarea name="message" placeholder="Write your comment" required></textarea>
+                    </form>
+                    <pv-button class="answer-button">Answer</pv-button>
+                  </div>
+                  <h3>josemendoza</h3>
+                  <h3>The food is good, and   the  supplies and dishes are in good conditions. You  must try  one of     their soups if you are  lucky enough to have    leftovers</h3>
+                  <div class="contact content-body">
+                    <form method="POST" action="https://formspree.io/email@email.com">
+                      <input type="hidden" name="_subject" value="Contact request from personal website" />
+                      <textarea name="message" placeholder="Write your comment" required></textarea>
+                    </form>
+                    <pv-button class="answer-button">Answer</pv-button>
                   </div>
                 </div>
-
               </div>
-
-              <span class="desc">"The food is good,  and the  supplies  and dishes are in  good condition. You must try one  of their  soups if you  are lucky  enough to have leftlovers."    -    joseMendoza_ </span>
-              <form>
-                <p class="clasificacion">
-                  <input id="radio1" type="radio" name="estrellas" value="5"><!--
-    --><label for="radio1">★</label><!--
-    --><input id="radio2" type="radio" name="estrellas" value="4"><!--
-    --><label for="radio2">★</label><!--
-    --><input id="radio3" type="radio" name="estrellas" value="3"><!--
-    --><label for="radio3">★</label><!--
-    --><input id="radio4" type="radio" name="estrellas" value="2"><!--
-    --><label for="radio4">★</label><!--
-    --><input id="radio5" type="radio" name="estrellas" value="1"><!--
-    --><label for="radio5">★</label>
-                </p>
-              </form>
             </div>
           </div>
-
         </div>
-
-
       </div>
-
-
-
     </div>
   </pv-scrollpanel>
-
 </template>
 
 <script>
 export default {
-  name: "profile-food-store-settings.component"
+  name: "Profile",
+  data(){
+    return{
+      clicked: true
+    }
+  }
 }
 </script>
 
 <style scoped>
-
-.index-post {
-  width: 70vw; transition: all 3s;
-  height: 100%; overflow: hidden;
-  margin: auto;
-  display: block;
-  margin-top: 0.5%;
+.title{
+  margin: 00px
 }
-
-.contener {
-  float: left;
-  margin: 2px;
+.detail{
+  display: grid;
+  justify-content: start;
+  text-align:center;
+}
+.cards{
+  margin: 00px;
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 70vw;
-  height: 96%;
-  overflow: hidden;
-  background: #fff;
-  border-radius: 30px;
-  box-shadow: 0 0 3px 0 #00000073;
-  transition: all 0.3s;
+  justify-content: center;
 }
 
-.contener:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 11px 14px rgb(0 0 0 / 25%), 0 8px 20px rgb(0 0 0 / 10%);
+
+.container {
+  margin: 10px;
+
 }
 
-.image-contener {
-  display: block;
+input {
+  outline: 30px;
+  box-sizing: border-box;
+  height: 35px;
+  width: 90px;
+  padding: 0 100px;
+  color: #000;
+  border-radius: 9px;
+  font-size: 20px;
+  border: 2px solid #D50000;
+  transition: all .7s ease;
+}
+
+::placeholder {
+  color: grey;
+}
+
+.btn p {
+  font-size: 5px;
+  color: white;
+  line-height: 50px;
+  transition: all .7s ease;
+
+}
+.edit-info{
+  background: #3F1602;
+  margin-left: 20px;
+  font-family: 'Montserrat';
+  margin-left:-4px;
+  margin-bottom:80px;
+}
+.answer-button{
+  background-color: #FDFBEF;
+  color: white;
+  margin-left: 20px;
+  font-family: 'Montserrat';
+  margin-left:-4px;
+  margin-bottom:80px;
+}
+.container input {
+  width: 1450px;
+  height: 50px;
+}
+.container input {
+  width: 1515px;
+  height: 50px;
+}
+
+.container:hover i{
+  transform: rotate(-360deg);
+}
+.container-card{
+  display: flex;
+  margin: auto;
+}
+
+.card{
   width: 100%;
-  height: 600px;
+  margin: 20px;
+  border-radius: 29px;
   overflow: hidden;
-}
+  background:#FDFBEF;
+  cursor: default;
 
-.image-contener img {
+}
+.card img{
   width: 100%;
   height: 100%;
+}
+.card .contenido-card{
+  margin-left: 50px;
+  padding: 30px;
+  text-align:left;
+  font-size:30px;
+  font-weight:lighter;
+  font-family: 'Montserrat', sans-serif;
+}
+.card .contenido-card h3{
+  margin-bottom: 30px;
+  color: #3F1602;
 
 }
-
-.meta-contener {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  height: 20vw;
-  padding: 50px 20px;
+.card .contenido-card p{
+  line-height: 2.8;
+  color: #3F1602;
+  font-size: 18px;
+  margin-bottom: 5px;
 }
-
-.meta-contener .title {
-  padding: 0;
-  margin: 10px 0;
-  font-size: 35px;
-  color: saddlebrown;
-}
-
-.meta-contener .desc {
-  font-size: 20px;
-  text-align: left;
-  color: black;
-}
-
-.button-contener {
-  display: flex;
-  align-items: center;
-  width: 15%;
-  text-align: -moz-left;
-  height: 10vh;
-}
-
-.button-contener .button {
-  width: 100%;
-  padding: 15px 0;
+.card .contenido-card a{
+  display: inline-block;
+  font-size:20px;
+  padding: 5px;
+  margin-left:985px;
+  margin-top: 10px;
   text-decoration: none;
-  background: linear-gradient(125deg, saddlebrown 0%, saddlebrown 0%);
-  color: #fff;
-  border-radius: 15px;
-  font-size: 10px;
-  transition: all 0.3s;
-
+  color:#FDFBEF;
+  background-color: #3F1602;
+  border-radius: 10px;
+  transition: all 400ms ease;
+  margin-bottom: 40px;
+}
+.card .contenido-card a:hover{
+  background: brown;
+  color: #3F1602;
+}
+@media only screen and (min-width:320px) and (max-width:768px){
+  .container-card{
+    flex-wrap: wrap;
+  }
+  .card{
+    margin: 80px;
+  }
+}
+.space {
+  width: 20px;
+  height: 40px;
+  display: inline-block;
 }
 
-.button-contener .button:hover {
-  padding-left: 10px;
-  padding-right: 50px;
+list{
+  display: grid;
+  justify-content: start;
+  text-align:left;
 }
 
 
+.blue {
+  background: #fff;
+  text-align: center;
+}
+
+.contact {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 .contact input, .contact textarea {
   display: block;
-  width: 65vw;
-  padding: 35px;
-  border-radius: 50px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
   border: none;
+  margin-bottom: 10px;
   background: #D4D7E0;
   color: black;
   -webkit-transition: .5s ease all;
@@ -375,43 +243,28 @@ export default {
 }
 
 .contact textarea {
-  height: 2px;
+  height: 100px;
+  width:1050px;
   resize: none;
+  background-color: #FDFBEF;
+  border: 2px solid black ;
 }
 
-#form {
-  width: 250px;
-  margin: 0 auto;
-  height: 50px;
+.contact button {
+  display: block;
+  width: 100%;
+  background: #3F1602;
+  border-radius: 4px;
+  padding: 5px 10px;
+  border: none;
+  color: #FDFBEF;
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  -webkit-transition: .5s ease all;
+  transition: .5s ease all;
 }
-
-#form p {
-  text-align: center;
-}
-
-#form label {
-  font-size: 20px;
-}
-
-input[type="radio"] {
-  display: none;
-}
-
-label {
-  color: grey;
-}
-
-.clasificacion {
-  direction: rtl;
-  unicode-bidi: bidi-override;
-}
-
-label:hover,
-label:hover ~ label {
-  color: orange;
-}
-
-input[type="radio"]:checked ~ label {
-  color: orange;
+.comments{
+  font-size:17px;
+  font-weight: lighter;
 }
 </style>
