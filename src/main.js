@@ -24,6 +24,7 @@ import InputNumber from "primevue/inputnumber";
 import Image from 'primevue/image';
 import './assets/main.css'
 import Panel from "primevue/panel";
+import Rating from 'primevue/rating';
 
 const app = createApp(App)
 
@@ -45,5 +46,7 @@ app.component('pv-checkbox', Checkbox)
 app.component('pv-image', Image)
 app.component('pv-panel', Panel)
 app.component("pv-inputnumber", InputNumber)
+app.component("pv-rating", Rating)
+
 app.mount('#app')
 
