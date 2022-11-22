@@ -12,12 +12,12 @@
           <template #title>
             <div class="title-card">
               <div class="title-noti">{{notif.title}}</div>
-              <div class="subtitle-noti">{{notif.subtitle}}</div>
+              <div class="subtitle-noti">{{notif.subTitle}}</div>
             </div>
           </template>
           <template #content>
             <div class="content-card">
-              <div class="content-card">{{notif.content}}</div>
+              <div class="content-card">{{notif.description}}</div>
             </div>
           </template>
         </pv-card>

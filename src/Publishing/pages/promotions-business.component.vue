@@ -67,8 +67,8 @@
           </template>
           <template #content class="text-contenido">
             <h1>{{notifi.title}}</h1><br>
-            <h3>{{notifi.subtitle}}</h3><br>
-            <h5>{{notifi.content}}</h5>
+            <h3>{{notifi.subTitle}}</h3><br>
+            <h5>{{notifi.description}}</h5>
           </template>
           <template #footer>
             <img class="image-card" :src="notifi.image" alt="">
@@ -104,7 +104,8 @@ export default {
       submitted: false,
       notifications: [],
       notifService: null,
-      notif: {}
+      notif: {},
+      userProfileId: 0
     }
   },
   validations(){
@@ -115,11 +116,12 @@ export default {
     }
   },
   created(){
+    this.userProfileId = this.$route.params.userProfileId;
     try{
       this.notifService = new PromotionsApiService();
-      this.notifService.getAll().then((response)=>{
+      this.notifService.getByUserProfileId(this.userProfileId).then((response)=>{
         this.notifications = response.data;
-        console.log(this.notifications);
+        console.log(response);
       });
     }
     catch(e){
@@ -134,22 +136,22 @@ export default {
         return;
       }
       this.notif = {
-        id: this.id,
         title: this.title,
-        subtitle: this.subtitle,
-        content: this.description,
-        image: this.image
+        subTitle: this.subtitle,
+        description: this.description,
+        image: this.image,
+        userProfile: this.userProfileId
       }
       this.notifService.create(this.notif).then((response) =>{
         this.notifications.push(response);
         console.log(response);
+        this.title = '';
+        this.subtitle = '';
+        this.description = '';
+        this.image = '';
+        this.notif = {};
+        window.location.reload();
       });
-      this.title = '';
-      this.subtitle = '';
-      this.description = '';
-      this.image = '';
-      this.notif = {};
-      window.location.reload();
     },
     onCancel(){
       this.title = '';
@@ -165,8 +167,8 @@ export default {
             this.notifications.filter((n) => n.id !== id);
             this.notif = {};
             console.log(response);
+            window.location.reload();
           });
-      window.location.reload();
     }
   }
 }

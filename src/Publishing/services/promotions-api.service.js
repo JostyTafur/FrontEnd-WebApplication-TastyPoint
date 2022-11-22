@@ -2,34 +2,26 @@ import http from '/core/services/http-common.js';
 
 export class PromotionsApiService {
     getAll() {
-        return http.get('/promotions');
+        return http.get('/promotion');
     }
 
     getById(id) {
-        return http.get(`/promotions/${id}`);
+        return http.get(`/promotion/${id}`);
+    }
+
+    getByUserProfileId(id) {
+        return http.get(`/userprofile/${id}/promotions`);
     }
 
     create(data) {
-        return http.post('/promotions', data);
+        return http.post('/promotion', data);
     }
 
     update(id, data) {
-        return http.put(`/promotions/${id}`, data);
-    }
-
-    patch(id, data) {
-        return http.patch(`/promotions/${id}`, data);
+        return http.put(`/promotion/${id}`, data);
     }
 
     delete(id) {
-        return http.delete(`/promotions/${id}`);
-    }
-
-    findByTitle(title) {
-        return http.get(`/promotions?title=${title}`);
-    }
-
-    findBy(title, condicion) {
-        return http.get(`/promotions?${title}=${condicion}`);
+        return http.delete(`/promotion/${id}`);
     }
 }

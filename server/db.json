@@ -69,17 +69,6 @@
   ],
   "posts": [
     {
-      "restaurantname": "Cevichando",
-      "producttype": "Dinner Plate",
-      "productname": "Pizza",
-      "description": "Pizza",
-      "deliverymethod": "Face-to-face",
-      "price": "20",
-      "favourite": false,
-      "image": "https://elcomercio.pe/resizer/ii0EiWdpMP9_DsJzJ3whAirXg3U=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/WKLKU6YQTJEZJLSWM3CUZZ37AA.jpg",
-      "id": 1
-    },
-    {
       "id": 2,
       "restaurantname": "Cevichando",
       "producttype": "Dinner Plate",
@@ -89,6 +78,17 @@
       "favorite": false,
       "price": 10,
       "image": "https://comidasperuanas.net/wp-content/uploads/2015/07/Arroz-con-pollo-peruano.jpg"
+    },
+    {
+      "id": 3,
+      "restaurantname": "Cevichando",
+      "producttype": "Dinner Plate",
+      "productname": "Pizza",
+      "description": "Pizza",
+      "deliverymethod": "Face-to-face",
+      "price": "3",
+      "favourite": false,
+      "image": "https://elcomercio.pe/resizer/ii0EiWdpMP9_DsJzJ3whAirXg3U=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/WKLKU6YQTJEZJLSWM3CUZZ37AA.jpg"
     }
   ],
   "orders": [

@@ -14,6 +14,17 @@
               </router-link>
             </div>
             <div class="inputs">
+              <h4>Username</h4>
+              <pv-inputtext id="username"
+                            v-model="v$.username.$model"
+                            type="text" placeholder="Enter username"
+                            :class="{'p-invalid': v$.username.$invalid && submitted}"
+                            class="inp"></pv-inputtext>
+
+              <small v-if="(v$.username.$invalid && submitted) || v$.username.$pending.$response"
+                     class="p-error">{{v$.username.required.$message.replace('Value', 'Name')}}</small>
+            </div>
+            <div class="inputs">
               <h4>Email</h4>
               <pv-inputtext id="Email"
                             v-model="v$.Email.$model"
@@ -32,7 +43,7 @@
             </div>
             <div class="inputs">
               <div style="display: flex; justify-content: space-between">
-                <h4>Password</h4><router-link to="/forgotpassword" class="fyp" >Forgot your password?</router-link>
+                <h4>Password</h4>
               </div>
               <pv-password id="password"
                             v-model="v$.password.$model"
@@ -46,19 +57,6 @@
                 <pv-inputtext class="btnLog-in" type="submit" value="Log In"></pv-inputtext>
             </div>
           </template>
-          <template #footer>
-            <div class="box">
-              <span class="line"></span>
-              <span class = "text"> or </span>
-              <span class="line"></span>
-            </div>
-            <div class="btnsFooter">
-              <pv-button class="btnfoot btnG" label="Sign in with Google" icon="pi pi-google"></pv-button>
-              <pv-button class="btnfoot btnF" label="Sign in with Facebook" icon="pi pi-facebook"></pv-button>
-              <pv-button class="btnfoot btnA" label="Sign in with Apple" icon="pi pi-apple"></pv-button>
-            </div>
-          </template>
-
         </pv-card>
       </form>
     </div>
@@ -67,13 +65,19 @@
 <script>
 import {email,required} from '@vuelidate/validators'
 import {useVuelidate} from '@vuelidate/core'
+import {UserApiService} from "../services/user-api.service";
+
 export default{
   setup: () => ({ v$: useVuelidate() }),
   data(){
     return{
       Email: '',
       password: '',
-      submitted: false
+      username: '',
+      submitted: false,
+      userService: null,
+      User: {},
+      Response: {}
     }
   },
   validations(){
@@ -84,18 +88,40 @@ export default{
       },
       password: {
         required
+      },
+      username: {
+        required
       }
     }
   },
+  created() {
+    try {
+      this.userService = new UserApiService();
+    }catch (e){
+      console.error(e);
+    }
+  },
   methods:{
+    changeRoute(id){
+      this.$router.push({name: 'segmentation',params: {userId: id}});
+    },
     checkForm(isFormValid){
       this.submitted = true;
 
       if (!isFormValid) {
-
         return;
       }
-      this.$router.push('/segmentation');
+
+      this.User = {
+        username: this.username,
+        email: this.Email,
+        password: this.password
+      }
+
+      this.userService.signin(this.User).then((response)=>{
+        this.$router.push({name: 'segmentation',params: {userId: response.data.id}});
+        console.log(response);
+      });
     }
   }
 }

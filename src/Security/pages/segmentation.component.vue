@@ -53,8 +53,10 @@
 </template>
 
 <script>
-import {email,required} from '@vuelidate/validators'
+import {required} from '@vuelidate/validators'
 import {useVuelidate} from '@vuelidate/core'
+import {UserprofileApiService} from "../services/userprofile-api.service";
+
 export default{
   setup: () => ({ v$: useVuelidate() }),
   data(){
@@ -68,7 +70,24 @@ export default{
         {name: 'Soda Fountain'},
         {name: 'Drives inn'},
         {name: 'Bar'}
-      ]
+      ],
+      userId: 0,
+      userProfileService: null,
+      userProfile: {}
+    }
+  },
+  created() {
+    this.userId = this.$route.params.userId;
+    try{
+      this.userProfileService = new UserprofileApiService();
+      this.userProfileService.getByUserId(this.userId).then((response)=>{
+          if(response.data.type === 'Consumer')
+            this.$router.push({name: 'dashboard-consumer',params: {userProfileId:response.data.id}});
+          if(response.data.type === 'Business')
+            this.$router.push({name: 'dashboard-business',params: {userProfileId:response.data.id}});
+      })
+    }catch (e){
+      console.error(e);
     }
   },
   validations(){
@@ -83,13 +102,31 @@ export default{
       this.submitted = true;
 
       if(this.segmento === 'Consumer'){
-        this.$router.push('/consumer/list');
+        this.userProfile = {
+          name: "",
+          phoneNumber: "",
+          type: "Consumer",
+          userId: this.userId
+        }
+        this.userProfileService.create(this.userProfile)
+            .then((response) =>{
+              this.$router.push({name: 'dashboard-consumer',params: {userProfileId:response.data.id}})
+            });
       }
       if(this.segmento === 'Business'){
         if (!isFormValid) {
           return;
         }
-        this.$router.push('/business/catalogue')
+        this.userProfile = {
+          name: "",
+          phoneNumber: "",
+          type: "Business",
+          userId: this.userId
+        }
+        this.userProfileService.create(this.userProfile)
+            .then((response) => {
+              this.$router.push({name: 'dashboard-business',params: {userProfileId:response.data.id}})
+            });
       }
     }
   }

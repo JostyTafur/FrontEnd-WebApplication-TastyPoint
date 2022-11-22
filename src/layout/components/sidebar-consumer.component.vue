@@ -11,27 +11,27 @@
       <h3>Menu</h3>
     </div>
     <div class="menu-items">
-      <router-link to="/consumer/list" active-class="active" exact tag="button" class="side-btn">
+      <router-link :to="{ name: 'list-packs', params: {id:userId}}" active-class="active" exact tag="button" class="side-btn">
         <div class="link-container">
           <i class=" pi pi-list"></i>
           List
         </div>
       </router-link>
-      <router-link to="/consumer/favorites" active-class="active" exact tag="button" class="side-btn">
+      <!--<router-link :to="{ name: 'favorites-packs', params: {id:userId}}" active-class="active" exact tag="button" class="side-btn">
         <div class="link-container">
           <i class=" pi pi-heart-fill"></i>
           Favorites
         </div>
-      </router-link>
+      </router-link>-->
 
-      <router-link to="/consumer/notifications" active-class="active" exact tag="button" class="side-btn">
+      <router-link :to="{ name: 'notifications', params: {id:userId}}" active-class="active" exact tag="button" class="side-btn">
         <div class="link-container">
           <i class=" pi pi-bell"></i>
           Notifications
         </div>
       </router-link>
 
-      <router-link to="/consumer/orders" active-class="active" exact tag="button" class="side-btn">
+      <router-link :to="{ name: 'order-consumer', params: {id:userId}}" active-class="active" exact tag="button" class="side-btn">
         <div class="link-container">
           <i class=" pi pi-shopping-bag"></i>
           Orders
@@ -44,7 +44,7 @@
       <h3>Account</h3>
     </div>
     <div class="menu-items">
-      <router-link to="/consumer/settings" active-class=active exact tag="button" class="side-btn">
+      <router-link :to="{ name: 'settings-consumer', params: {id:userId}}" active-class=active exact tag="button" class="side-btn">
         <div class="link-container">
           <i class=" pi pi-list"></i>
           Settings
@@ -95,7 +95,12 @@ export default {
   data(){
     return{
       seeDialog: false,
+      userId: 0
     }
+  },
+  created() {
+    this.userId = this.$route.params.userId;
+    this.$router.push({name: 'list-packs',params: {id: this.userId}});
   },
   methods:{
     signOut(){

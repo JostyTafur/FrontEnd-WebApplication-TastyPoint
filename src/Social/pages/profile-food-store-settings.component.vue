@@ -25,31 +25,30 @@
                 <p>This store does not offer delivery.</p>
                 <pv-button class="edit-info">Edit information</pv-button>
               </div>
+              <div>
+                <form method="POST" action="https://formspree.io/email@email.com">
+                  <input type="hidden" name="_subject" value="Contact request from personal website" />
+                  <textarea name="message" placeholder="Write your comment" required></textarea>
+                </form>
+              </div>
               <div class="comment-section" style="margin-top:2rem ">
                 <div>
                   <h3 style="font-size:20px;font-size:26px"> 2 Comments </h3>
                 </div>
-                <div>
-
-                </div>
                 <div class="comments">
-                  <h3>paulina124</h3>
+                  <h2>paulina124</h2>
                   <h3>I love the attention, although they take a while. On the other hand, the delicios food.</h3>
-                  <div class="contact content-body">
+                  <!--<div class="contact content-body">
                     <form method="POST" action="https://formspree.io/email@email.com">
                       <input type="hidden" name="_subject" value="Contact request from personal website" />
                       <textarea name="message" placeholder="Write your comment" required></textarea>
                     </form>
                     <pv-button class="answer-button">Answer</pv-button>
-                  </div>
-                  <h3>josemendoza</h3>
+                  </div>-->
+                  <h2>josemendoza</h2>
                   <h3>The food is good, and   the  supplies and dishes are in good conditions. You  must try  one of     their soups if you are  lucky enough to have    leftovers</h3>
                   <div class="contact content-body">
-                    <form method="POST" action="https://formspree.io/email@email.com">
-                      <input type="hidden" name="_subject" value="Contact request from personal website" />
-                      <textarea name="message" placeholder="Write your comment" required></textarea>
-                    </form>
-                    <pv-button class="answer-button">Answer</pv-button>
+                    <!--<pv-button class="answer-button">Answer</pv-button>-->
                   </div>
                 </div>
               </div>
@@ -173,7 +172,11 @@ input {
 .card .contenido-card h3{
   margin-bottom: 30px;
   color: #3F1602;
+}
 
+.card .contenido-card h2{
+  margin-bottom: 30px;
+  color: #3F1602;
 }
 .card .contenido-card p{
   line-height: 2.8;

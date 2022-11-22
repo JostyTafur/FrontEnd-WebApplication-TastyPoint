@@ -1,7 +1,7 @@
 <template>
   <div class="bg">
     <div style="display: grid; grid-template-columns: 10% 90%; margin: 10px">
-      <router-link to="/consumer/list" style="justify-self: center; align-self: center">
+      <router-link :to="{name: 'list-packs',params: {id: userId}}" style="justify-self: center; align-self: center">
         <i class="pi pi-arrow-left" style="font-size: 2rem;"></i>
       </router-link>
       <h1 style="color: #3f1602">Details Product</h1>
@@ -95,11 +95,13 @@ export default {
   name: "DetailsDish",
   data(){
     return {
-      id: Number
+      id: Number,
+      userId: 0
     }
   },
   created() {
-    this.id = this.$route.params.id
+    this.id = this.$route.params.id;
+    this.userId = this.$route.params.userProfileId;
   }
 }
 </script>

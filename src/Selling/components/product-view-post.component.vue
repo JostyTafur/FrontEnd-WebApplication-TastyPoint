@@ -5,7 +5,7 @@
       <h2>Catalog of products and supplies:</h2>
     </div>
     <div class="buttons-catalog">
-      <router-link to="/business/catalogue">
+      <router-link :to="{ name: 'catalogue', params: {userProfileId:userProfileId}}">
         <pv-button class="my-view">My View</pv-button>
       </router-link>
       <router-link to="/business/postDish">
@@ -14,33 +14,18 @@
     </div>
     <pv-scrollpanel style="width:99%; height: 80vh">
       <div class="cards">
-        <pv-card  v-for="dish of filteredDishes" :key="dish.id">
+        <pv-card  v-for="dish of dishes" :key="dish.id">
           <template #header>
-            <a href="/business/catalogue">
-              <img class="img-card" :src="dish.image"/>
-            </a>
-            <div class="price">Price: {{dish.price}}</div>
-
+              <img class="img-card" src="https://cdn-icons-png.flaticon.com/512/2937/2937032.png"/>
           </template>
           <template #title>
             <div class="title-card">
-              <div class="rest-name">{{dish.restaurantname}}</div>
-              <div class="icon-card">
-                <a v-on:click="updateFavorite(dish)">
-                  <i :class="[dish.favorite? 'pi pi-heart-fill' : 'pi pi-heart']" style="font-size: 2rem"></i>
-                </a>
-              </div>
+              <div class="rest-name">{{dish.name}}</div>
+              <div class="price">Price: {{dish.price}}</div>
             </div>
-
           </template>
           <template #content>
             <div class="content-card">
-              <div>
-                Product type: {{dish.producttype}}
-              </div>
-              <div>
-                Product name: {{dish.productname}}
-              </div>
             </div>
           </template>
         </pv-card>
@@ -51,7 +36,7 @@
 </template>
 
 <script>
-import {PostsApiService} from "../services/catalog-api.service";
+import {PacksApiService} from "../services/packs-api.service";
 export default {
   name: "ConsumerView",
   data() {
@@ -61,12 +46,14 @@ export default {
       dishesService: null,
       dish: {},
       textS: "",
+      userProfileId: 0
     };
   },
   created() {
+    this.userProfileId = this.$route.params.userProfileId;
     try {
-      this.dishesService = new PostsApiService();
-      this.dishesService.getAll().then((response) => {
+      this.dishesService = new PacksApiService();
+      this.dishesService.getByUserId(this.userProfileId).then((response) => {
         this.dishes = response.data;
         console.log(this.dishes);
       });
@@ -75,10 +62,9 @@ export default {
     }
   },
   computed: {
-    filteredDishes() {
+    /*filteredDishes() {
       return this.dishes.filter((dish => (dish.productname.includes(this.search) || dish.restaurantname.includes(this.search))))
-
-    }
+    }*/
   },
 }
 </script>
@@ -135,7 +121,7 @@ export default {
   position: absolute;
   top: 70%;
   left: 65%;
-  color: white;
+  color: #000000;
   font-size: 18px;
 }
 .p-card{

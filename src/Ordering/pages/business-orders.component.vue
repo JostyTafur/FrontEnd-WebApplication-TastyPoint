@@ -9,20 +9,13 @@
         <pv-card v-for="order of orders" class="element-card-order">
           <template #title>
             <div class="p-card-title">
-              <h3>Product: {{order.product}}</h3>
-              <h4>Restaurant: {{order.restaurant}}</h4>
+              <h3>Process: {{order.status}}</h3>
             </div>
           </template>
           <template #content>
             <div class="p-card-content">
-              <li>Product type: {{order.productType}}</li>
               <li>Delivery Method: {{order.deliveryMethod}}</li>
               <li>Payment Method: {{order.paymentMethod}}</li>
-              <li>Consumer: {{order.consumer}}</li>
-              <li>Unit Price: {{order.unitPrice}}</li>
-              <li>Quantity: {{order.quantity}}</li>
-              <li>Total Price: {{order.totalPrice}}</li>
-              <li>Date and Time: {{order.dateTime}}</li>
             </div>
           </template>
           <template #footer>
@@ -48,13 +41,15 @@ export default{
       text: '',
       orders:[],
       orderService: null,
-      order: {}
+      order: {},
+      userProfileId: 0
     };
   },
   created() {
+    this.userProfileId = this.$route.params.userProfileId;
     try{
       this.orderService=new OrdersApiService();
-      this.orderService.getAll().then((response)=>{
+      this.orderService.getByUserProfileId(this.userProfileId).then((response)=>{
         this.orders=response.data;
         console.log(this.orders);
       });

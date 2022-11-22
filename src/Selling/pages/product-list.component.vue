@@ -18,28 +18,23 @@
         <pv-card  v-for="product of filteredProducts" :key="product.id">
           <template #header>
             <router-link :to="{ name: 'detail', params: {id:product.id}}">
-              <img class="img-card" :src="product.image" alt=""/>
+              <img class="img-card" src="https://cdn-icons-png.flaticon.com/512/2937/2937032.png" alt=""/>
             </router-link>
-            <div class="price font-Mont">Price: S/{{product.price}}</div>
 
           </template>
           <template #title>
             <div class="title-card">
-              <div class="rest-name font-Mont">{{product.productname}}</div>
+              <div class="rest-name font-Mont">{{product.name}}</div>
+              <div class="price font-Mont">Price: S/{{product.price}}</div>
               <div class="icon-card">
-                <a v-on:click="updateFavorite(product)">
+                <!--<a v-on:click="updateFavorite(product)">
                   <i :class="[product.favorite? 'pi pi-heart-fill' : 'pi pi-heart']" style="font-size: 2rem"></i>
-                </a>
+                </a>-->
               </div>
             </div>
 
           </template>
           <template #content>
-            <div class="content-card font-Mont">
-              <div>
-                Restaurant: {{product.restaurantname}}
-              </div>
-            </div>
           </template>
         </pv-card>
       </div>
@@ -49,7 +44,8 @@
 </template>
 
 <script>
-import {ProductsApiService} from "../services/products-api.service"
+import {PacksApiService} from "../services/packs-api.service";
+
 export default {
   name: "List",
   data() {
@@ -63,10 +59,10 @@ export default {
   },
   created() {
     try {
-      this.productsService = new ProductsApiService();
+      this.productsService = new PacksApiService();
       this.productsService.getAll().then((response) => {
         this.products = response.data;
-        console.log(this.products);
+        console.log(response);
       });
     } catch (e) {
       console.error(e);
@@ -74,7 +70,7 @@ export default {
   },
   computed: {
     filteredProducts() {
-      return this.products.filter((product => (product.productname.includes(this.search) || product.restaurantname.includes(this.search))))
+      return this.products.filter((product => (product.name)))
 
     }
   },
@@ -138,7 +134,7 @@ input{
   position: absolute;
   top: 70%;
   left: 65%;
-  color: white;
+  color: #000000;
   font-size: 18px;
 }
 .p-card{

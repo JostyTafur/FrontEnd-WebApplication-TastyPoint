@@ -7,56 +7,55 @@
       <router-link to="/business/consumerView">
         <pv-button class="consumer-view">Consumer View</pv-button>
       </router-link>
-      <pv-button class="post-new">Post New</pv-button>
+      <pv-button class="post-new" style="margin-left: 20px">Post New</pv-button>
     </div>
     <pv-scrollpanel style="width:99%; height: 82vh" class="custom">
       <div class="cards">
-        <pv-card >
-          <template #header>
-            <div class="image-upload">
-              <label for="file-input">
-                <img class="image-post" src="../../assets/images/AddImage.png" alt="">
-              </label>
-              <input id="file-input" type="file" />
-            </div>
-          </template>
+        <pv-card>
           <template #content>
-            <div class="content-card">
-              <div class="content-card">Product Type:
-                <pv-dropdown v-model="post.producttype" :options="productTypes" optionLabel="name" optionValue="code" style="width:17.4vw;"></pv-dropdown>
-              </div>
-              <br>
-              <div class="content-card">Product Name:
-                <pv-inputtext v-model="post.productname" style="width:16.7vw;height:1vw;align-content:center" type="text" id="product-type" ></pv-inputtext>
-              </div>
-              <br>
-              <div  class="content-card">Description:</div>
-              <pv-inputtext v-model="post.description" style="height:4vw;width:25vw" type="text" id="product-type" ></pv-inputtext>
-              <br>
-              <br>
-              <div class="content-card">Delivery Methods:
+            <div style="display: grid; grid-template-columns: 1fr 1fr;">
+              <div class="content-card" style="margin: 2vw; display: grid;">
+                <div class="content-card">Product Type:
+                  <pv-dropdown v-model="post.producttype" :options="productTypes" optionLabel="name" optionValue="code" style="width:17.4vw;"></pv-dropdown>
+                </div>
                 <br>
+                <div class="content-card">Product Name:
+                  <pv-inputtext v-model="post.productname" style="width:16.7vw;height:1vw" type="text" id="product-type" ></pv-inputtext>
+                </div>
                 <br>
-                <pv-radiobutton name="delivery" value="Face-to-face" v-model="post.deliverymethod" />
-                <label for="delivery1">Face-to-face</label>
-                <br>
-                <pv-radiobutton name="delivery" value="Delivery" v-model="post.deliverymethod" />
-                <label for="delivery2">Delivery</label>
+                <div class="post-button">
+                  <router-link :to="{ name: 'catalogue', params: {userProfileId:userProfileId}}">
+                    <pv-button class="cancel-button">Cancel</pv-button>
+                  </router-link>
+                  <router-link :to="{ name: 'catalogue', params: {userProfileId:userProfileId}}">
+                    <pv-button class="add-button" @click="savePost">Add</pv-button>
+                  </router-link>
+                </div>
               </div>
-              <br>
-              <div class="content-card">Price:
-                <pv-inputtext v-model="post.price" style="width:10vw;height:1vw;margin-left: 11.7vw" type="number" min="1" id="product-type" ></pv-inputtext></div>
-              <br>
-              <div class="post-button">
-                <router-link to="/business/catalogue">
-                  <pv-button class="cancel-button">Cancel</pv-button>
-                </router-link>
-                <router-link to="/business/catalogue">
-                  <pv-button class="add-button" @click="savePost">Post</pv-button>
-                </router-link>
+              <div class="content-card" style="margin: 2vw;">
+                <div class="content-card">Pack Name:
+                  <pv-inputtext v-model="post.name" style="width:16.7vw;height:1vw" type="text" id="product-type" ></pv-inputtext>
+                </div>
+                <br>
+                <div class="content-card">Price:
+                  <pv-inputtext v-model="post.price" style="width:10vw;height:1vw;margin-left: 11.7vw" type="number" min="1" id="product-type" ></pv-inputtext></div>
+                <br>
+                <div class="post-button">
+                  <router-link :to="{ name: 'catalogue', params: {userProfileId:userProfileId}}">
+                    <pv-button class="cancel-button">Cancel</pv-button>
+                  </router-link>
+                  <router-link :to="{ name: 'catalogue', params: {userProfileId:userProfileId}}">
+                    <pv-button class="add-button" @click="savePost">Create Pack</pv-button>
+                  </router-link>
+                </div>
+                <br>
+                <h2>Products: </h2>
+                <ul>
+                  <li>Product 1 (Supply)</li>
+                  <li>Product 2 (Dish)</li>
+                </ul>
               </div>
             </div>
-
           </template>
         </pv-card>
       </div>
@@ -65,7 +64,7 @@
 </template>
 
 <script>
-import {PostsApiService} from "../services/catalog-api.service";
+import {PacksApiService} from "../services/packs-api.service";
 
 export default{
   name: "PostDish",
@@ -80,11 +79,13 @@ export default{
         {name: 'Supplies', code: 'Supplies'}
       ],
       delivery:null,
+      userProfileId: 0
     };
   },
   created(){
+    this.userProfileId = this.$route.params.userProfileId;
     try{
-      this.catalogService = new PostsApiService();
+      this.catalogService = new PacksApiService();
       this.catalogService.getAll().then((response)=>{
         this.posts = response.data;
         console.log(this.posts);
@@ -102,14 +103,9 @@ export default{
     getStorablePost(newpost) {
       return {
         id: newpost.id,
-        restaurantname: "Cevichando",
-        producttype: newpost.producttype,
-        productname: newpost.productname,
-        description: newpost.description,
-        deliverymethod: newpost.deliverymethod,
         price: newpost.price,
-        favourite:false,
-        image:"https://elcomercio.pe/resizer/ii0EiWdpMP9_DsJzJ3whAirXg3U=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/WKLKU6YQTJEZJLSWM3CUZZ37AA.jpg",
+        name: newpost.name,
+        userProfileId: this.userProfileId
       };
     },
     findIndexById(id) {
@@ -142,13 +138,18 @@ h2{
 }
 .catalog{
   display: grid;
+  grid-template-columns: 1fr;
   justify-content: start;
 }
 
 .image-upload>input {
   display: none;
 }
-
+.packs{
+  margin: 2vw;
+  justify-self: center;
+  align-self: center;
+}
 .title{
   margin: 10px 40px 0 60px;
   grid-column: 1;
@@ -157,8 +158,10 @@ h2{
 }
 .consumer-view{
   background: #F9731C;
-  margin-right:20px;
   font-family: 'Montserrat';
+}
+.consumer-view:hover{
+  background: #fa8f4b;
 }
 .buttons-catalog{
   justify-self: end;
@@ -167,7 +170,8 @@ h2{
 }
 .post-button{
   justify-self: end;
-  margin-left:0vw;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
   font-family: 'Montserrat';
 
 }
@@ -181,11 +185,13 @@ h2{
 }
 .post-new{
   background: #3F1602;
-  margin-left: 20px;
   font-family: 'Montserrat';
 }
+.post-new:hover{
+  background: #702905;
+}
 .cards{
-  display: inline-block;
+  display: grid;
   padding: 20px 40px;
   margin-left:1vw;
 }
@@ -196,15 +202,14 @@ h2{
   margin-left: -4vw;
   padding: 10px;
   border-radius:10%;
-  cursor: pointer;
 }
 
 .p-card{
-
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: end;
-  justify-content: center;
-  width:56vw;
+  justify-self: center;
+  width:66vw;
   height:fit-content;
   margin: 15px;
   border-radius: 20px;

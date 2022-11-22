@@ -11,27 +11,27 @@
       <h3>Menu</h3>
     </div>
     <div class="menu-items">
-      <router-link to="/business/catalogue" active-class="active" exact tag="button" class="side-btn">
+      <router-link :to="{ name: 'catalogue', params: {userProfileId:userId}}" active-class="active" exact tag="button" class="side-btn">
         <div class="link-container">
           <i class=" pi pi-list"></i>
           Catalogue
         </div>
       </router-link>
-      <router-link to="/business/Profiles" active-class="active" exact tag="button" class="side-btn">
+      <router-link :to="{ name: 'profile-store', params: {userProfileId:userId}}" active-class="active" exact tag="button" class="side-btn">
         <div class="link-container">
           <i class=" pi pi-user"></i>
           Profile
         </div>
       </router-link>
 
-      <router-link to="/business/promotions" active-class="active" exact tag="button" class="side-btn">
+      <router-link :to="{ name: 'promotions', params: {userProfileId:userId}}" active-class="active" exact tag="button" class="side-btn">
         <div class="link-container">
           <i class=" pi pi-percentage"></i>
           Promotions
         </div>
       </router-link>
 
-      <router-link to="/business/orders" active-class="active" exact tag="button" class="side-btn">
+      <router-link :to="{ name: 'order-business', params: {userProfileId:userId}}" active-class="active" exact tag="button" class="side-btn">
         <div class="link-container">
           <i class=" pi pi-briefcase"></i>
           Orders
@@ -44,7 +44,7 @@
       <h3>Account</h3>
     </div>
     <div class="menu-items">
-      <router-link to="/business/settings" active-class=active exact tag="button" class="side-btn">
+      <router-link :to="{ name: 'settings-business', params: {userProfileId:userId}}" active-class=active exact tag="button" class="side-btn">
         <div class="link-container">
           <i class=" pi pi-cog"></i>
           Settings
@@ -95,7 +95,12 @@ export default {
   data(){
     return{
       seeDialog: false,
+      userId: 0
     }
+  },
+  created() {
+    this.userId = this.$route.params.userProfileId;
+    this.$router.push({name: 'catalogue',params: {userProfileId: this.userId}});
   },
   methods:{
     signOut(){

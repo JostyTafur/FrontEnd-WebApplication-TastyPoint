@@ -24,12 +24,4 @@ export class ProductsApiService {
     delete(id) {
         return http.delete(`/products/${id}`);
     }
-
-    findByTitle(title) {
-        return http.get(`/products?title=${title}`);
-    }
-
-    findBy(title,condicion) {
-        return http.get(`/products?${title}=${condicion}`);
-    }
 }

@@ -15,8 +15,6 @@
           </template>
           <template #content>
             <div class="p-card-content font-Mont">
-              <li>Restaurant: {{order.restaurant}}</li>
-              <li>Product type: {{order.productType}}</li>
               <li>Delivery Method: {{order.deliveryMethod}}</li>
               <li>Payment Method: {{order.paymentMethod}}</li>
             </div>
@@ -45,13 +43,16 @@ export default{
     return{
       text: '',
       orders:[],
-      orderService: null
+      orderService: null,
+      userProfileId: 0
     };
   },
   created() {
+    this.userProfileId = this.$route.params.userProfileId;
+    console.log(this.$route.params.userProfileId)
     try{
       this.orderService=new OrdersApiService();
-      this.orderService.getAll().then((response)=>{
+      this.orderService.getByUserProfileId(this.userProfileId).then((response)=>{
         this.orders=response.data;
         console.log(this.orders);
       });

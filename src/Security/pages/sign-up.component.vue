@@ -81,6 +81,8 @@
 <script>
 import {email,required} from '@vuelidate/validators'
 import {useVuelidate} from '@vuelidate/core'
+import {UserApiService} from "../services/user-api.service";
+
 export default{
   setup: () => ({ v$: useVuelidate() }),
   data(){
@@ -89,7 +91,9 @@ export default{
       Email: '',
       password: '',
       submitted: false,
-      accept: null
+      accept: null,
+      userService: null,
+      User: {}
     }
   },
   validations(){
@@ -109,15 +113,37 @@ export default{
       }
     }
   },
+  created() {
+    try{
+      this.userService = new UserApiService();
+    }catch (e){
+      console.error(e);
+    }
+  },
   methods:{
     checkForm(isFormValid){
       this.submitted = true;
 
       if (!isFormValid) {
-
         return;
       }
-      this.$router.push('/segmentation');
+
+      this.User = {
+        username: this.username,
+        email: this.Email,
+        password: this.password
+      }
+
+      this.userService.signup(this.User).then((response)=>{
+        if(response.data.message === "Registration successful")
+          this.$router.push('/');
+        console.log(response);
+      });
+
+      this.username = "";
+      this.Email = "";
+      this.password = "";
+      this.User = {};
     }
   }
 }

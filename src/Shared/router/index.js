@@ -15,85 +15,94 @@ const router = createRouter({
       component: () => import('../../Security/pages/sign-up.component.vue')
     },
     {
-      path: '/segmentation',
+      path: '/segmentation/:userId',
+      name: 'segmentation',
       component: () => import('../../Security/pages/segmentation.component.vue')
     },
     {
-      path: '/forgotpassword',
-      component: () => import('../../Security/pages/forgot-password.component.vue')
-    },
-    {
-      path: '/consumer',
+      path: '/consumer/:userProfileId',
       name: 'dashboard-consumer',
       component: DashBoardConsumer,
       children: [
         {
-          path: '/consumer/list',
+          path: '/consumer/:userProfileId/list',
+          name: "list-packs",
           component: () => import('../../Selling/pages/product-list.component.vue')
         },
         {
-          path: '/consumer/favorites',
+          path: '/consumer/:userProfileId/favorites',
+          name: "favorites-packs",
           component: () => import("../../Social/pages/product-favorites.component.vue")
         },
         {
-          path: '/consumer/notifications',
+          path: '/consumer/:userProfileId/notifications',
+          name: "notifications",
           component: () => import("../../Publishing/pages/promotions-notifications.component.vue")
         },
         {
-          path: '/consumer/Ordering',
+          path: '/consumer/:userProfileId/orders',
+          name: "order-consumer",
           component: () => import("../../Ordering/pages/consumer-orders.component.vue")
         },
         {
-          path: '/consumer/settings',
+          path: '/consumer/:userProfileId/settings',
+          name: "settings-consumer",
           component: () => import('../../Profiles/pages/profile-consumer-settings.component.vue')
         },
         {
-          path: '/consumer/detail/:id',
+          path: '/consumer/:userProfileId/detail/:id',
           name: 'detail',
           component: () => import('../../Selling/components/product-details.component.vue')
         },
         {
-          path: '/consumer/Profiles-food-store',
+          path: '/consumer/:userProfileId/Profiles-food-store',
           name: 'Profiles-food-store',
           component: () => import('../../Social/pages/profile-food-store.component.vue')
         }
       ]
     },
     {
-      path: '/business',
+      path: '/business/:userProfileId',
       name: 'dashboard-business',
       component: DashBoardBusiness,
       children: [
         {
-          path: '/business/catalogue',
+          path: '/business/:userProfileId/catalogue',
+          name: 'catalogue',
           component: ()=> import("../../Selling/pages/products-catalogue.component.vue")
         },
         {
-          path: '/business/Profiles',
+          path: '/business/:userProfileId/Profiles',
+          name: 'profile-store',
           component: () => import("../../Social/pages/profile-food-store-settings.component.vue")
         },
         {
-          path: '/business/Publishing',
+          path: '/business/:userProfileId/promotions',
+          name: 'promotions',
           component: () => import("../../Publishing/pages/promotions-business.component.vue")
         },
         {
-          path: '/business/Ordering',
+          path: '/business/:userProfileId/orders',
+          name: 'order-business',
           component: ()=> import("../../Ordering/pages/business-orders.component.vue")
         },
         {
-          path: '/business/settings',
+          path: '/business/:userProfileId/settings',
+          name: 'settings-business',
           component: ()=> import("../../Profiles/pages/profile-business-settings.component.vue")
         },
         {
-          path: '/business/consumerView',
+          path: '/business/:userProfileId/consumerView',
+          name: 'consumerView',
           component: () => import('../../Selling/components/product-view-post.component.vue')
         },
         {
-          path: '/business/postDish',
+          path: '/business/:userProfileId/postDish',
+          name: 'postDish',
           component: () => import('../../Selling/components/product-create-post.component.vue')
         },
         {
-          path: '/business/editPost:id',
+          path: '/business/:userProfileId/editPost:id',
           name: 'edit',
           component: () => import('../../Selling/components/product-edit-post.component.vue')
         }
